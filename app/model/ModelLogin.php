@@ -29,4 +29,3 @@ public function getUser(string $email) {
 $test = new ModelLogin();
 $test->getUser('admin@afpa.fr');
 
-// Voir avec M Bonneau...
