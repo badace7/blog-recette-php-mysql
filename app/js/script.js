@@ -7,7 +7,11 @@ const burgerMenu = () => {
     let buttonCo = document.querySelector("#button-connexion").style;
     let buttonIn = document.querySelector("#button-inscription").style;
 
-    if (element.display == "none") {
+    let off = element.display == "none";
+    let on = element.display == "flex";
+
+    if (off) {
+        // Si navbar non affichée, permet affichage de celle-ci avec les propriétés ci-dessous.
         element.display = "flex";
         element.flexDirection = "column";
         headerSize.height = "16.5rem";
@@ -19,9 +23,8 @@ const burgerMenu = () => {
         buttonIn.justifyContent = "center";
         buttonIn.marginRight = "-2rem";
 
-        
-
-    } else if  (element.display == "flex") {
+    } else if (on) {
+        // Si navbar affichée, permet de la cachée avec les propriétés ci-dessous.
         element.display = "none";
         headerSize.height = "5.5rem";
         buttonCo.display = "none";
@@ -37,12 +40,16 @@ const whileEvent = (query) => {
     let buttonCo = document.querySelector("#button-connexion").style;
     let buttonIn = document.querySelector("#button-inscription").style;
 
+    let resolutionInferieurTablette = query.matches;
 
-    if (query.matches) {
+
+    if (resolutionInferieurTablette) {
+        // Si la résolution est inférieur à 770px cache la navbar, boutons connexion et inscription.
         element.display = "none";
         buttonCo.display = "none";
 
     } else {
+        // Si la résolution est supérieur à 770px affiche la navbar avec les propiétés d'une tablette.
         element.display = "inline-block";
         headerSize.height = "5.5rem";
         buttonCo.display = "none";
@@ -50,6 +57,6 @@ const whileEvent = (query) => {
     } 
 }
 
-let query = window.matchMedia("(max-width: 770px)");
-whileEvent(query);
-query.addEventListener("change", whileEvent);
+let query = window.matchMedia("(max-width: 770px)"); // Défini un média query avec max-width à 770px
+whileEvent(query);                                  // Appelle la fonction permettant d'appliquer la condition du média query
+query.addEventListener("change", whileEvent);      // Permet de définir les propriétés suite au changement de résolution
