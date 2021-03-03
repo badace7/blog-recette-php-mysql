@@ -1,18 +1,29 @@
 <?php
 
+use app\controller\HomeController;
 
-$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS) ?? 'home';
+session_start();
+
+spl_autoload_register(function($class) {
+    $class = 'app\\'.substr($class, 4).'.php';
+    $class = str_replace('\\', '/', $class);
+    require $class;
+});
+
+$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'home';
 
 
 
 switch($action) {
 
+    
 
     case 'home':
-
-        $view = 'app/view/accueil';
+        $controller = new HomeController();
+        $controller->home();
 
         break;
+
 
     case 'rubrique_salee':
 
@@ -81,6 +92,4 @@ switch($action) {
             break;
 }
 
-
-include 'app/view/template.php';
 
