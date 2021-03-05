@@ -1,6 +1,10 @@
 <?php
 
+
+use app\controller\LastPost;
+use app\controller\LoginLogon;
 use app\controller\HomeController;
+use app\controller\RecetteController;
 
 session_start();
 
@@ -14,82 +18,90 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
 
 
 
-switch($action) {
-
-    
+    switch ($action) {
 
     case 'home':
         $controller = new HomeController();
         $controller->home();
 
         break;
+        
+    case 'apropos':
+        
+        $controller = new HomeController();
+        $controller->about();
+        
+        break;
 
 
     case 'rubrique_salee':
-
-        $view = 'app/view/rubrique_salee';
+        $controller = new RecetteController();
+        $controller->recetteSalee();
 
         break;
+
+
 
     case 'rubrique_sucree':
-
-        $view =  'app/view/rubrique_sucree';
-
+        $controller = new RecetteController();
+        $controller->recetteSucree();
+    
         break;
-
-    case 'apropos':
-
-        $view =  'app/view/apropos';
-
-        break;
+     
 
     case 'connect':
 
-        $view =  'app/view/connect';
+        $controller = new LoginLogon();
+        $controller->connect();
     
         break;
 
     case 'inscription':
 
-        $view =  'app/view/inscription';
+        $controller = new LoginLogon();
+        $controller->inscription();
     
         break;
 
-        case 'recette_pate':
+    case 'recette_pate':
         
-            $view = "app/view/recettes/recettepate";
+        $controller = new LastPost();
+        $controller->recettePate();
     
-            break;
+        break;
     
-        case 'recette_poulet':
+    case 'recette_poulet':
             
-            $view = "app/view/recettes/recettepoulet";
+        $controller = new LastPost();
+        $controller->recettePoulet();
         
-            break;
+        break;
         
-        case 'recette_tomate':
+    case 'recette_tomate':
             
-            $view = "app/view/recettes/recettetomate";
+        $controller = new LastPost();
+        $controller->recetteTomate();
             
-            break;
+        break;
     
-        case 'recette_painperdu':
+    case 'recette_painperdu':
             
-            $view = "app/view/recettes/recettepainperdu";
+        $controller = new LastPost();
+        $controller->recettePainperdu();
                 
-            break;
-    
-        case 'recette_pancake':
+        break;
+        
+    case 'recette_pancake':
             
-            $view = "app/view/recettes/recettepancake";
+        $controller = new LastPost();
+        $controller->recettePancake();
                     
-            break;
+        break;
     
-        case 'recette_tortillas':
+    case 'recette_tortillas':
             
-            $view = "app/view/recettes/recettetortillas";
+        $controller = new LastPost();
+        $controller->recetteTortillas();
                         
-            break;
+        break;
 }
-
-

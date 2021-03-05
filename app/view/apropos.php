@@ -9,7 +9,7 @@
                 </div>
                 <div class="apropos-text">
                     <div class="titre">
-                        <h2>Cook'n Chill 😋</h2>
+                        <h2>Eat'n dream 😋</h2>
                         <p>La cuisine est ma passion</p>
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptas autem quidem, debitis eum ipsa! Iusto aperiam assumenda architecto necessitatibus incidunt quod natus labore impedit illum, cumque ut maxime repellendus molestiae itaque commodi, odio hic nisi id soluta pariatur est.</p>

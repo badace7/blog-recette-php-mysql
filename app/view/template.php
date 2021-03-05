@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cook'n chill</title>
+    <title>Eat'n dream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="app/css/style.css">
 </head>
@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="index.php?action=home" class="navbar-logo">Cook'n chill</a>
+                <a href="index.php?action=home" class="navbar-logo">Eat'n dream</a>
                 <a href="#" onclick="burgerMenu()" class="burger-icon">
                         <i class="fas fa-bars"></i>
                     </a>
@@ -63,7 +63,7 @@
                 <i class="fab fa-pinterest"></i>
             </a>
         </div>
-        <span>Cook'n chill</span>
+        <span>Eat'n dream</span>
     </footer>
     <!-- fin footer -->
 

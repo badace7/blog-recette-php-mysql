@@ -11,4 +11,12 @@ class HomeController extends Controller {
         
 
     }
+
+
+    public function about() {
+
+        $this->render('apropos');
+        
+
+    }
 }

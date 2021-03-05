@@ -12,7 +12,7 @@
   <div class="banner">
           <div class="container">
               <h1 class="banner-titre">
-                  <span>Cook</span>\'n chill blog
+                  <span>Eat</span>\'n dream
               </h1>
               <p>Bienvenue sur le meilleur blog du monde</p>
               <!-- <form action="">
