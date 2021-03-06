@@ -39,6 +39,7 @@ const whileEvent = (query) => {
     let headerSize = document.querySelector(".navbar").style;
     let buttonCo = document.querySelector("#button-connexion").style;
     let buttonIn = document.querySelector("#button-inscription").style;
+    // let buttonDeco = document.querySelector("#button-deconnexion").style;
 
     let resolutionInferieurTablette = query.matches;
 
@@ -47,12 +48,14 @@ const whileEvent = (query) => {
         // Si la résolution est inférieur à 770px cache la navbar, boutons connexion et inscription.
         element.display = "none";
         buttonCo.display = "none";
+        // buttonDeco.display = "none";
 
     } else {
         // Si la résolution est supérieur à 770px affiche la navbar avec les propiétés d'une tablette.
         element.display = "inline-block";
         headerSize.height = "5.5rem";
         buttonCo.display = "none";
+        // buttonDeco.display = "none";
         buttonIn.display ="none";
     } 
 }

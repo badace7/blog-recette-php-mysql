@@ -55,6 +55,13 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
         $controller->connect();
     
         break;
+    
+    case 'deconnect':
+
+        $controller = new LoginLogon();
+        $controller->deconnect();
+
+        break;
 
     case 'inscription':
 

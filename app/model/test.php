@@ -1,7 +1,10 @@
 <?php
-namespace app\model;
-use PDO;
-use PDOException;
+// namespace app\model;
+
+// use PDO;
+// use Exception;
+// use PDOException;
+// use app\entity\User;
 
 /**
  * Class Dao permettant la connexion a la base de donnée
@@ -62,18 +65,36 @@ use PDOException;
             $statement->bindParam('email', $email);
             $statement->execute();
     
-    
-            $test = $statement->fetch(PDO::FETCH_ASSOC);
-            
-            echo 'Requête réussie';
-            var_dump($test);
-        } catch (PDOException $e) {
+            if ($statement->rowCount() == 1) {
+                $statement->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'app\entity\User.php');
+                return $statement->fetch();       
+            }
+        } catch (Exception $e) {
 
-            echo "Erreur : ".$e->getMessage();
+            throw new Exception("Error Processing Request BRO", 1);
+            
         }
     }
     }
     
+
+
     $test = new ModelLogin();
-    $test->getUser('admin@afpa.fr');
+    $test = $test->getUser('admin@afpa.fr');
+
+    $_SESSION['user'] = $test;
+
+    extract($_SESSION['user']);
+
+
+
+
+    var_dump($role_utilisateur);
+
+
+    // if (password_verify($password, $test['password_utilisateur'])) {
+    //     echo 'Mot de passe valide !';
+    // }   else {
+    //     echo 'Mot de passe non valide :/ ! ';
+    // }
     

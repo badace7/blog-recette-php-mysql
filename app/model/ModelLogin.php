@@ -1,7 +1,10 @@
 <?php
 namespace app\model;
+
+use app\entity\User;
 use PDO;
-use PDOException;
+use Exception;
+
 
 class ModelLogin extends Dao {
 
@@ -16,16 +19,17 @@ public function getUser(string $email) {
             $statement->bindParam('email', $email);
             $statement->execute();
 
-
-            $test = $statement->fetch(PDO::FETCH_ASSOC);
-
-            var_dump($test);
-        } catch (PDOException $e) {
-                echo "Erreur : ".$e->getMessage();
+        if ($statement->rowCount() == 1) {
+                $statement->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'app\entity\User.php');
+                echo '<br>'.'REQUEST SUCCESS';
+                return $statement->fetch();
+            
+        }
+        } catch (Exception $e) {
+                throw new Exception("Error Processing Request", 1);
+                
         }
 }
 }
 
-$test = new ModelLogin();
-$test->getUser('admin@afpa.fr');
 

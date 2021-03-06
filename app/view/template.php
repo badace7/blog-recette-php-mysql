@@ -25,12 +25,25 @@
                     <a href="index.php?action=rubrique_sucree">sucrées</a>
                     <a href="index.php?action=rubrique_salee">salées</a>
                     <a href="index.php?action=apropos">à propos</a>
-                    <a id="button-connexion" href="index.php?action=connect">Se connecter</a>
-                    <a id="button-inscription" href="index.php?action=inscription">S'inscrire</a>
+                    <?php 
+                    if(!$connected){
+                       echo '<a id="button-connexion" href="index.php?action=connect">Se connecter</a>
+                       <a id="button-inscription" href="index.php?action=inscription">S\'inscrire</a>';
+                    } else {
+                        echo '<a id="button-deconnexion" href="index.php?action=deconnect">Se deconnecter</a>';
+                    }
+                    ?>
+                    
                 </div>
                 <div class="button-co">
-                    <a href="index.php?action=connect">Se connecter</a><p style="color:#fff;">&nbsp;/&nbsp;</p>
-                    <a href="index.php?action=inscription">S'inscrire</a> 
+                <?php
+                if(!$connected){
+                 echo '<a href="index.php?action=connect">Se connecter</a><p style="color:#fff;">&nbsp;/&nbsp;</p>
+                        <a href="index.php?action=inscription">S\'inscrire</a>';
+                } else {
+                    echo '<a href="index.php?action=deconnect">Se deconnecter</a><p style="color:#fff;">';
+                }
+                ?>
                 </div>
             </div>
         </nav>
