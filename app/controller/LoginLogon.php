@@ -2,6 +2,7 @@
 namespace app\controller;
 
 use app\model\ModelLogin;
+use app\model\ModelUser;
 
 class LoginLogon extends Controller {
 
@@ -14,7 +15,7 @@ class LoginLogon extends Controller {
             $login = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-            $model = new ModelLogin();
+            $model = new ModelUser();
         
             $user = $model->getUser($login);
 
@@ -36,7 +37,23 @@ class LoginLogon extends Controller {
 
 
     function inscription() {
-        $this->render('user/inscription');
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $this->render('user/inscription');
+        } else {
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+            $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
+            $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+            $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
+            
+            $model = new ModelUser();
+
+            $user = $model->newUser($email, $password, $pseudo, $nom, $prenom);
+            header('Location: index.php');
+        }
+
+
+
     }
 
 

@@ -4,7 +4,7 @@
             <h2>S'inscrire</h2>
             <br><br>
         </div>
-        <form class="inscription-form" action="">
+        <form class="inscription-form" action="index.php?action=inscription" method="post">
         
         <label for="nom"><b class="label-input">Nom</b></label>
         <input class="input-inscription" type="text" placeholder="Nom" name="nom" required>
@@ -19,7 +19,7 @@
         <input class="input-inscription" type="text" placeholder="Email" name="email" required>
 
         <label for="psw"><b class="label-input">Mot de passe</b></label>
-        <input class="input-inscription" type="password" placeholder="Mot de passe" name="psw" required>
+        <input class="input-inscription" type="password" placeholder="Mot de passe" name="password" required>
 
         <label for="psw-confirm"><b class="label-input">Confirmer Mot de passe</b></label>
         <input class="input-inscription" type="password" placeholder="Confirmer Mot de passe" name="psw-confirm" required>

@@ -5,161 +5,152 @@ namespace app\entity;
 
 class User {
 
-    private $id;
-    private $email;
-    private $password;
-    private $pseudo;
-    private $nom;
-    private $prenom;
-    private $role;
+    private $id_utilisateur;
+    private $email_utilisateur;
+    private $password_utilisateur;
+    private $pseudo_utilisateur;
+    private $nom_utilisateur;
+    private $prenom_utilisateur;
+    private $role_utilisateur;
 
-    // function __construct($id, $email, $password, $pseudo, $nom, $prenom, $role)
-    // {
-    //     $this->id = $id;
-    //     $this->email = $email;
-    //     $this->password = $password;
-    //     $this->pseudo = $pseudo;
-    //     $this->nom = $nom;
-    //     $this->prenom = $nom;
-    //     $this->role = $role;        
-    // }
+   
 
     /**
-     * Get the value of id
+     * Get the value of id_utilisateur
      */ 
-    public function getId()
+    public function getId_utilisateur()
     {
-        return $this->id;
+        return $this->id_utilisateur;
     }
 
     /**
-     * Set the value of id
+     * Set the value of id_utilisateur
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId_utilisateur($id_utilisateur)
     {
-        $this->id = $id;
+        $this->id_utilisateur = $id_utilisateur;
 
         return $this;
     }
 
     /**
-     * Get the value of email
+     * Get the value of email_utilisateur
      */ 
-    public function getEmail()
+    public function getEmail_utilisateur()
     {
-        return $this->email;
+        return $this->email_utilisateur;
     }
 
     /**
-     * Set the value of email
+     * Set the value of email_utilisateur
      *
      * @return  self
      */ 
-    public function setEmail($email)
+    public function setEmail_utilisateur($email_utilisateur)
     {
-        $this->email = $email;
+        $this->email_utilisateur = $email_utilisateur;
 
         return $this;
     }
 
     /**
-     * Get the value of password
+     * Get the value of password_utilisateur
      */ 
-    public function getPassword()
+    public function getPassword_utilisateur()
     {
-        return $this->password;
+        return $this->password_utilisateur;
     }
 
     /**
-     * Set the value of password
+     * Set the value of password_utilisateur
      *
      * @return  self
      */ 
-    public function setPassword($password)
+    public function setPassword_utilisateur($password_utilisateur)
     {
-        $this->password = $password;
+        $this->password_utilisateur = $password_utilisateur;
 
         return $this;
     }
 
     /**
-     * Get the value of pseudo
+     * Get the value of pseudo_utilisateur
      */ 
-    public function getPseudo()
+    public function getPseudo_utilisateur()
     {
-        return $this->pseudo;
+        return $this->pseudo_utilisateur;
     }
 
     /**
-     * Set the value of pseudo
+     * Set the value of pseudo_utilisateur
      *
      * @return  self
      */ 
-    public function setPseudo($pseudo)
+    public function setPseudo_utilisateur($pseudo_utilisateur)
     {
-        $this->pseudo = $pseudo;
+        $this->pseudo_utilisateur = $pseudo_utilisateur;
 
         return $this;
     }
 
     /**
-     * Get the value of nom
+     * Get the value of nom_utilisateur
      */ 
-    public function getNom()
+    public function getNom_utilisateur()
     {
-        return $this->nom;
+        return $this->nom_utilisateur;
     }
 
     /**
-     * Set the value of nom
+     * Set the value of nom_utilisateur
      *
      * @return  self
      */ 
-    public function setNom($nom)
+    public function setNom_utilisateur($nom_utilisateur)
     {
-        $this->nom = $nom;
+        $this->nom_utilisateur = $nom_utilisateur;
 
         return $this;
     }
 
     /**
-     * Get the value of prenom
+     * Get the value of prenom_utilisateur
      */ 
-    public function getPrenom()
+    public function getPrenom_utilisateur()
     {
-        return $this->prenom;
+        return $this->prenom_utilisateur;
     }
 
     /**
-     * Set the value of prenom
+     * Set the value of prenom_utilisateur
      *
      * @return  self
      */ 
-    public function setPrenom($prenom)
+    public function setPrenom_utilisateur($prenom_utilisateur)
     {
-        $this->prenom = $prenom;
+        $this->prenom_utilisateur = $prenom_utilisateur;
 
         return $this;
     }
 
     /**
-     * Get the value of role
+     * Get the value of role_utilisateur
      */ 
-    public function getRole()
+    public function getRole_utilisateur()
     {
-        return $this->role;
+        return $this->role_utilisateur;
     }
 
     /**
-     * Set the value of role
+     * Set the value of role_utilisateur
      *
      * @return  self
      */ 
-    public function setRole($role)
+    public function setRole_utilisateur($role_utilisateur)
     {
-        $this->role = $role;
+        $this->role_utilisateur = $role_utilisateur;
 
         return $this;
     }
