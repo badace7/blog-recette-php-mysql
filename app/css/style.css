@@ -68,7 +68,6 @@ img {
 .navbar-link {
     text-align: center;
     margin-top: 2rem;
-    
 }
 
 .navbar-link a{
@@ -654,6 +653,11 @@ footer {
     .conseils-content, .comment-content {
         width: 60%;
     }
+
+    #param {
+        display: none;
+    }
+    
 
 }
 

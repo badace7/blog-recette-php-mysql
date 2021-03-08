@@ -6,6 +6,8 @@ const burgerMenu = () => {
     let headerSize = document.querySelector(".navbar").style;
     let buttonCo = document.querySelector("#button-connexion").style;
     let buttonIn = document.querySelector("#button-inscription").style;
+    let buttonParametre = document.querySelector("#param").style;
+
 
     let off = element.display == "none";
     let on = element.display == "flex";
@@ -19,16 +21,24 @@ const burgerMenu = () => {
         buttonCo.display = "flex";
         buttonCo.justifyContent = "center";
         buttonCo.marginRight = "-2rem";
-        buttonIn.display ="flex";
-        buttonIn.justifyContent = "center";
-        buttonIn.marginRight = "-2rem";
+        if(hide == false) {
+            buttonIn.display ="flex";
+            buttonIn.justifyContent = "center";
+            buttonIn.marginRight = "-2rem";
+        }
+
+        if(hide == true) {
+            buttonParametre.display ="flex";
+            buttonParametre.justifyContent = "center";
+            buttonParametre.marginRight = "-2rem";
+        }
 
     } else if (on) {
         // Si navbar affichée, permet de la cachée avec les propriétés ci-dessous.
         element.display = "none";
         headerSize.height = "5.5rem";
         buttonCo.display = "none";
-        buttonIn.display ="none";
+        // buttonIn.display ="none";
     }
 
 }
@@ -39,7 +49,7 @@ const whileEvent = (query) => {
     let headerSize = document.querySelector(".navbar").style;
     let buttonCo = document.querySelector("#button-connexion").style;
     let buttonIn = document.querySelector("#button-inscription").style;
-    // let buttonDeco = document.querySelector("#button-deconnexion").style;
+    let buttonParam = document.querySelector("#param").style;
 
     let resolutionInferieurTablette = query.matches;
 
@@ -48,15 +58,17 @@ const whileEvent = (query) => {
         // Si la résolution est inférieur à 770px cache la navbar, boutons connexion et inscription.
         element.display = "none";
         buttonCo.display = "none";
-        // buttonDeco.display = "none";
+        buttonIn.display = "none";
+        
 
     } else {
-        // Si la résolution est supérieur à 770px affiche la navbar avec les propiétés d'une tablette.
+        // Si la résolution est supérieur à 770px affiche la navbar avec les propiétées d'une tablette.
         element.display = "inline-block";
         headerSize.height = "5.5rem";
         buttonCo.display = "none";
-        // buttonDeco.display = "none";
-        buttonIn.display ="none";
+        buttonIn.display = "none";
+        buttonParam.display = "none";
+        
     } 
 }
 

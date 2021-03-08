@@ -25,23 +25,21 @@
                     <a href="index.php?action=rubrique_sucree">sucrées</a>
                     <a href="index.php?action=rubrique_salee">salées</a>
                     <a href="index.php?action=apropos">à propos</a>
-                    <?php 
-                    if(!$connected){
-                       echo '<a id="button-connexion" href="index.php?action=connect">Se connecter</a>
-                       <a id="button-inscription" href="index.php?action=inscription">S\'inscrire</a>';
+                    <?php if($connected){  
+                        echo '<script>hide = true;</script><a id="button-inscription" style="display:none;" href="index.php?action=inscription">s\'inscrire</a><a id="param" href="#">paramètre</a><a id="button-connexion" style="display:none;" href="index.php?action=deconnect">se deconnecter</a>';
                     } else {
-                        echo '<a id="button-deconnexion" href="index.php?action=deconnect">Se deconnecter</a>';
+                        echo '<script>hide = false;</script><a id="button-connexion"  href="index.php?action=connect">se connecter</a>
+                         <a id="button-inscription" href="index.php?action=inscription">s\'inscrire</a><a style="display:none;"id="param" href="#">paramètre</a>';
                     }
                     ?>
-                    
                 </div>
                 <div class="button-co">
                 <?php
                 if(!$connected){
-                 echo '<a href="index.php?action=connect">Se connecter</a><p style="color:#fff;">&nbsp;/&nbsp;</p>
-                        <a href="index.php?action=inscription">S\'inscrire</a>';
+                 echo '<a href="index.php?action=connect">se connecter</a><p style="color:#fff;">&nbsp;/&nbsp;</p>
+                        <a href="index.php?action=inscription">s\'inscrire</a>';
                 } else {
-                    echo '<a href="index.php?action=deconnect">Se deconnecter</a><p style="color:#fff;">';
+                    echo '<span style="color:white; font-size:1.1rem;"><strong>Hello '.$user['pseudo_utilisateur'].'&nbsp;</strong></span><a href="#">paramètre</a><p style="color:#fff;">&nbsp;/&nbsp;</p><a href="index.php?action=deconnect">se deconnecter</a><p style="color:#fff;">';
                 }
                 ?>
                 </div>
