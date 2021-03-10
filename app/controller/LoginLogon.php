@@ -30,7 +30,7 @@ class LoginLogon extends Controller {
                 $_SESSION['nom'] = $user->getNom_utilisateur();
                 header('Location: index.php');
             } else {
-                echo '<h1>Mot de passe non valide</h1>';
+                header('Location: index.php?action=connect');
             }
         }
     }

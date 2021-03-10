@@ -6,7 +6,7 @@
                         <br><br>
                     </div>
                     <label for="email"><b class="label-input">Email</b></label>
-                    <input class="input-form" type="text" placeholder="Email" name="email" required>
+                    <input class="input-form" type="email" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$" placeholder="Email" name="email" required>
 
                     <label for="mdp"><b class="label-input">Mot de passe</b></label>
                     <input class="input-form" type="password" placeholder="Mot de passe" name="password" required>

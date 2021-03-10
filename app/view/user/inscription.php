@@ -16,7 +16,7 @@
         <input class="input-inscription" type="text" placeholder="Pseudo" name="pseudo" required>
         
         <label for="email"><b class="label-input">Email</b></label>
-        <input class="input-inscription" type="text" placeholder="Email" name="email" required>
+        <input class="input-inscription" type="email" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$" placeholder="Email" name="email" required>
 
         <label for="psw"><b class="label-input">Mot de passe</b></label>
         <input class="input-inscription" type="password" placeholder="Mot de passe" name="password" required>
