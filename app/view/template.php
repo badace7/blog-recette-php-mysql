@@ -39,7 +39,7 @@
                  echo '<a href="index.php?action=connect">se connecter</a><p style="color:#fff;">&nbsp;/&nbsp;</p>
                         <a href="index.php?action=inscription">s\'inscrire</a>';
                 } else {
-                    echo '<span style="color:white; font-size:1.1rem;"><strong>Hello '.$user['pseudo_utilisateur'].'&nbsp;😃&nbsp;</strong></span><a href="#">paramètre</a><p style="color:#fff;">&nbsp;/&nbsp;</p><a href="index.php?action=deconnect">se deconnecter</a><p style="color:#fff;">';
+                    echo '<span style="color:white; font-size:1.1rem;"><strong>Hello '.$pseudo.'&nbsp;😃&nbsp;</strong><br></span><a href="#">paramètre</a><p style="color:#fff;">&nbsp;/&nbsp;</p><a href="index.php?action=deconnect">se deconnecter</a><p style="color:#fff;">';
                 }
                 ?>
                 </div>

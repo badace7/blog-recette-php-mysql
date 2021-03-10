@@ -1,8 +1,9 @@
 <?php
 namespace app\controller;
 
-use app\model\ModelLogin;
+use app\entity\User;
 use app\model\ModelUser;
+
 
 class LoginLogon extends Controller {
 
@@ -19,8 +20,14 @@ class LoginLogon extends Controller {
         
             $user = $model->getUser($login);
 
-            if (password_verify($password, $user['password_utilisateur'])) {
-                $_SESSION['user'] = serialize($user);
+            if (password_verify($password, $user->getPassword_utilisateur())) {
+                $_SESSION['user'] = $user;
+                $_SESSION['id'] = $user->getId_utilisateur();
+                $_SESSION['role'] = $user->getRole_utilisateur();
+                $_SESSION['pseudo'] = $user->getPseudo_utilisateur();
+                $_SESSION['email'] = $user->getEmail_utilisateur();
+                $_SESSION['prenom'] = $user->getPrenom_utilisateur();
+                $_SESSION['nom'] = $user->getNom_utilisateur();
                 header('Location: index.php');
             } else {
                 echo '<h1>Mot de passe non valide</h1>';
@@ -46,9 +53,12 @@ class LoginLogon extends Controller {
             $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
             $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
             
+            
+            $user = new User($email, $password, $pseudo, $nom, $prenom);
+
             $model = new ModelUser();
 
-            $user = $model->newUser($email, $password, $pseudo, $nom, $prenom);
+            $createUser = $model->newUser($user);
             header('Location: index.php');
         }
 

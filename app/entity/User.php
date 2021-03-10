@@ -14,6 +14,16 @@ class User {
     private $role_utilisateur;
 
    
+    function __construct($email_utilisateur = '', $password_utilisateur = '', $pseudo_utilisateur = '', $nom_utilisateur = '', $prenom_utilisateur = '')
+    {       $this->id_utilisateur = 0;
+            $this->email_utilisateur = $email_utilisateur;
+            $this->password_utilisateur = $password_utilisateur;
+            $this->pseudo_utilisateur = $pseudo_utilisateur;
+            $this->nom_utilisateur = $nom_utilisateur;
+            $this->prenom_utilisateur = $prenom_utilisateur;
+            $this->role_utilisateur = 'ROLE_USER';
+    }
+
 
     /**
      * Get the value of id_utilisateur
