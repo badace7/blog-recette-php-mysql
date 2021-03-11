@@ -1,6 +1,7 @@
 <?php
 namespace app\model;
 use PDO;
+use Exception;
 use PDOException;
 
 /**
@@ -31,8 +32,8 @@ use PDOException;
 
             } catch (PDOException $e) {
 
-                echo "Erreur : ".$e->getMessage();
-
+                header("Location: index.php?action=error");
+            
             }
         }
     }

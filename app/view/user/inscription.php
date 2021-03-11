@@ -19,13 +19,13 @@
         <input class="input-inscription" type="email" pattern="^((?!\.)[\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$" placeholder="Email" name="email" required>
 
         <label for="psw"><b class="label-input">Mot de passe</b></label>
-        <input class="input-inscription" type="password" placeholder="Mot de passe" name="password" required>
+        <input class="input-inscription" id="password" type="password" placeholder="Mot de passe" name="password" required>
 
         <label for="psw-confirm"><b class="label-input">Confirmer Mot de passe</b></label>
-        <input class="input-inscription" type="password" placeholder="Confirmer Mot de passe" name="psw-confirm" required>
+        <input class="input-inscription" id="passwordConfirm" type="password" placeholder="Confirmer Mot de passe" name="psw-confirm" required>
         
 
-            <button type="submit" class="label-input">S'inscrire</button>
+            <button type="submit" onclick="confirmPassword()" class="label-input">S'inscrire</button>
         </form>
     </div>
 </section>

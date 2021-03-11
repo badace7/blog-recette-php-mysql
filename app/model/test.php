@@ -1,9 +1,9 @@
 <?php
-namespace app\model;
+// namespace app\model;
 
-use PDO;
-use Exception;
-use PDOException;
+// use PDO;
+// use Exception;
+// use PDOException;
 
 /**
  * Class Dao permettant la connexion a la base de donnée

@@ -1,75 +1,71 @@
 <?php
+
 namespace app\model;
 
-use app\entity\User;
 use PDO;
+use Exception;
 use PDOException;
+use app\entity\User;
+use Error;
 
+class ModelUser extends Dao
+{
+    public function getUser(string $email): User
+    {
+        $bddConnect = $this->pdoConnect();
 
-class ModelUser extends Dao {
+        try {
+            $requestLogin = "SELECT * FROM Utilisateur WHERE email_utilisateur=:email";
+            $statement = $bddConnect->prepare($requestLogin);
+            $statement->bindParam('email', $email);
 
+            $statement->execute();
 
-        public function getUser(string $email) :User {
-                try {
-                        $bddConnect = $this->pdoConnect();
-
-                        $requestLogin = "SELECT * FROM Utilisateur WHERE email_utilisateur=:email";
-                        $statement = $bddConnect->prepare($requestLogin);
-                
-                        $statement->bindParam('email', $email);
-                        $statement->execute();
-
-                        if ($statement->rowCount() == 1) {
-                                $statement->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'app\entity\User');
-                                echo '<br>'.'REQUEST SUCCESS';
-                                return $statement->fetch();
-                        
-                        }
-
-                } catch (PDOException $e) {
-                        echo "Erreur : ".$e->getMessage();
-                        
-                }
+            $test = $statement->rowCount();
+            if ($test == 0) {
+                throw new Exception("L'email est inexistant");
+            } elseif ($test == 1) {
+                $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\User');
+                echo '<br>' . 'REQUEST SUCCESS';
+                return $statement->fetch();
+            }
+        } catch (Error $e) {
+            header("Location: index.php?action=error");
         }
+    }
 
-        public function newUser(User $user) {
-                
-                $email = $user->getEmail_utilisateur();
-                $password = $user->getPassword_utilisateur();
-                $pseudo = $user->getPseudo_utilisateur();
-                $nom = $user->getNom_utilisateur();
-                $prenom = $user->getPrenom_utilisateur();
-                $role = $user->getRole_utilisateur();
+    public function newUser(User $user)
+    {
+        $email = $user->getEmail_utilisateur();
+        $password = $user->getPassword_utilisateur();
+        $pseudo = $user->getPseudo_utilisateur();
+        $nom = $user->getNom_utilisateur();
+        $prenom = $user->getPrenom_utilisateur();
+        $role = $user->getRole_utilisateur();
 
-                try {
+        try {
+            $bddConnect = $this->pdoConnect();
 
-                    $bddConnect = $this->pdoConnect();
-
-                    $requestNew = "INSERT INTO Utilisateur (`email_utilisateur`,`password_utilisateur`,`pseudo_utilisateur`,`nom_utilisateur`,`prenom_utilisateur`,`role_utilisateur`)
+            $requestNew = "INSERT INTO Utilisateur (`email_utilisateur`,`password_utilisateur`,`pseudo_utilisateur`,`nom_utilisateur`,`prenom_utilisateur`,`role_utilisateur`)
                     VALUES (:email, :password, :pseudo, :nom, :prenom, :role)";
 
-                       
-                    $password = password_hash($password, PASSWORD_BCRYPT);
-                
 
-                    $statement = $bddConnect->prepare($requestNew);
-                    $statement->bindParam('email', $email);
-                    $statement->bindParam('password', $password);
-                    $statement->bindParam('pseudo', $pseudo);
-                    $statement->bindParam('nom', $nom);
-                    $statement->bindParam('prenom', $prenom);
-                    $statement->bindParam('role', $role);
-                    $statement->execute();
-
-                    $idUser = $bddConnect->lastInsertId();
-                    $user->setId_utilisateur($idUser);
+            $password = password_hash($password, PASSWORD_BCRYPT);
 
 
-                } catch (PDOException $e) {
-                        echo "Erreur : ".$e->getMessage();
-                }
+            $statement = $bddConnect->prepare($requestNew);
+            $statement->bindParam('email', $email);
+            $statement->bindParam('password', $password);
+            $statement->bindParam('pseudo', $pseudo);
+            $statement->bindParam('nom', $nom);
+            $statement->bindParam('prenom', $prenom);
+            $statement->bindParam('role', $role);
+            $statement->execute();
+
+            $idUser = $bddConnect->lastInsertId();
+            $user->setId_utilisateur($idUser);
+        } catch (PDOException $e) {
+                throw new Exception("ERREUR TEST");
         }
-
+    }
 }
-
-

@@ -74,4 +74,13 @@ const whileEvent = (query) => {
 
 let query = window.matchMedia("(max-width: 770px)"); // Défini un média query avec max-width à 770px
 whileEvent(query);                                  // Appelle la fonction permettant d'appliquer la condition du média query
-query.addEventListener("change", whileEvent);      // Permet de définir les propriétés suite au changement de résolution
+query.addEventListener("change", whileEvent); // Permet de définir les propriétés suite au changement de résolution
+
+
+
+const confirmPassword = () => {
+    let password = document.querySelector("#password").value;
+    let passwordConfirm = document.querySelector("#passwordConfirm").value;
+
+    alert('On peux recup la value');
+}

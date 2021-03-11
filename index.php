@@ -1,8 +1,9 @@
 <?php
 
-
-use app\controller\LastPost;
-use app\controller\LoginLogon;
+use app\controller\ErrorController;
+use app\error\Error;
+use app\controller\LastPostController;
+use app\controller\LoginLogonController;
 use app\controller\HomeController;
 use app\controller\RecetteController;
 
@@ -51,62 +52,69 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
 
     case 'connect':
 
-        $controller = new LoginLogon();
+        $controller = new LoginLogonController();
         $controller->connect();
     
         break;
     
     case 'deconnect':
 
-        $controller = new LoginLogon();
+        $controller = new LoginLogonController();
         $controller->deconnect();
 
         break;
 
+    case 'error':
+        
+        $controller = new ErrorController();
+        $controller->errorNotFound();
+
+        break;
+
     case 'inscription':
-        $controller = new LoginLogon();
+        $controller = new LoginLogonController();
         $controller->inscription();
     
         break;
 
     case 'recette_pate':
         
-        $controller = new LastPost();
+        $controller = new LastPostController();
         $controller->recettePate();
     
         break;
     
     case 'recette_poulet':
             
-        $controller = new LastPost();
+        $controller = new LastPostController();
         $controller->recettePoulet();
         
         break;
         
     case 'recette_tomate':
             
-        $controller = new LastPost();
+        $controller = new LastPostController();
         $controller->recetteTomate();
             
         break;
     
     case 'recette_painperdu':
             
-        $controller = new LastPost();
+        $controller = new LastPostController();
         $controller->recettePainperdu();
                 
         break;
         
     case 'recette_pancake':
             
-        $controller = new LastPost();
+        $controller = new LastPostController();
         $controller->recettePancake();
                     
         break;
     
     case 'recette_tortillas':
             
-        $controller = new LastPost();
+        $controller = new LastPostController();
         $controller->recetteTortillas();
                         
         break;

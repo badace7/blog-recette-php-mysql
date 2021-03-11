@@ -1,7 +1,7 @@
 <?php
 namespace app\controller;
 
-class LastPost extends Controller {
+class LastPostController extends Controller {
 
 
     function recettePate() {
