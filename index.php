@@ -1,11 +1,12 @@
 <?php
 
-use app\controller\ErrorController;
-use app\error\Error;
-use app\controller\LastPostController;
-use app\controller\LoginLogonController;
+
 use app\controller\HomeController;
+use app\controller\ErrorController;
 use app\controller\RecetteController;
+use app\controller\LastPostController;
+use app\controller\ParametreController;
+use app\controller\LoginLogonController;
 
 session_start();
 
@@ -62,6 +63,20 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
         $controller = new LoginLogonController();
         $controller->deconnect();
 
+        break;
+
+    case 'parametre':
+
+        $controller = new ParametreController();
+        $controller->parametreView();
+
+        break;
+
+    case 'profil':
+
+        $controller = new ParametreController();
+        $controller->profil();
+        
         break;
 
     case 'error':

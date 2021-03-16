@@ -68,4 +68,18 @@ class ModelUser extends Dao
                 throw new Exception("ERREUR TEST");
         }
     }
+
+
+    public function updateUser(User $user) {
+
+        $email = $user->getEmail_utilisateur();
+        $password = $user->getPassword_utilisateur();
+        $pseudo = $user->getPseudo_utilisateur();
+        $nom = $user->getNom_utilisateur();
+        $prenom = $user->getPrenom_utilisateur();
+        $role = $user->getRole_utilisateur();
+
+
+
+    }
 }

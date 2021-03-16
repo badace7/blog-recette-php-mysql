@@ -448,7 +448,7 @@ footer {
 
 /*Formulaire d'inscription*/
 .input-inscription {
-    width: 100%;
+    width: 80%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -473,7 +473,7 @@ footer {
 .inscription-form {
     background-color: var(--White);
     margin: 5% auto 15% auto;
-    width: 17rem;
+    width: 20rem;
 }
 
 .label-input {
@@ -562,6 +562,54 @@ footer {
     border-radius: 0.5rem;
 }
 
+/* Paramètre */
+
+.parametre-button {
+    border: none;
+    background-color: rgba(34, 49, 33, 0.6);
+    padding: 3rem; 
+    width:35%; 
+    margin-right:auto; 
+    margin-left:auto; 
+    margin-bottom: 5rem; 
+    color:#fff; 
+    text-align:center;
+}
+
+.parametre .container a {
+    text-decoration:none;
+}
+
+/* Formulaire profil */
+
+
+.input-profil {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: var(--White);
+    border: 1px solid #ccc;
+}
+
+
+.formulaire-profil button {
+    background-color: var(--TransluGreen);
+    color: var(--White);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 19rem;
+    opacity: 0.9;
+}
+
+
+.formulaire-profil {
+    background-color: var(--White);
+    margin: 5% auto 15% auto;
+    width: 17rem;
+}
 
 
 

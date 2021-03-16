@@ -26,7 +26,7 @@
                     <a href="index.php?action=rubrique_salee">salées</a>
                     <a href="index.php?action=apropos">à propos</a>
                     <?php if($connected){  
-                        echo '<script>hide = true;</script><a id="button-inscription" style="display:none;" href="index.php?action=inscription">s\'inscrire</a><a id="param" href="#">paramètre</a><a id="button-connexion" style="display:none;" href="index.php?action=deconnect">se deconnecter</a>';
+                        echo '<script>hide = true;</script><a id="button-inscription" style="display:none;" href="#">s\'inscrire</a><a id="param" href="index.php?action=parametre">paramètre</a><a id="button-connexion" style="display:none;" href="index.php?action=deconnect">se deconnecter</a>';
                     } else {
                         echo '<script>hide = false;</script><a id="button-connexion"  href="index.php?action=connect">se connecter</a>
                          <a id="button-inscription" href="index.php?action=inscription">s\'inscrire</a><a style="display:none;"id="param" href="#">paramètre</a>';
@@ -39,7 +39,7 @@
                  echo '<a href="index.php?action=connect">se connecter</a><p style="color:#fff;">&nbsp;/&nbsp;</p>
                         <a href="index.php?action=inscription">s\'inscrire</a>';
                 } else {
-                    echo '<span style="color:white; font-size:1.1rem;"><strong>Hello '.$pseudo.'&nbsp;😃&nbsp;</strong><br></span><a href="#">paramètre</a><p style="color:#fff;">&nbsp;/&nbsp;</p><a href="index.php?action=deconnect">se deconnecter</a><p style="color:#fff;">';
+                    echo '<span style="color:white; font-size:1.1rem;"><strong>Hello '.$pseudo.'&nbsp;😃&nbsp;</strong><br></span><a href="index.php?action=parametre">paramètre</a><p style="color:#fff;">&nbsp;/&nbsp;</p><a href="index.php?action=deconnect">se deconnecter</a><p style="color:#fff;">';
                 }
                 ?>
                 </div>

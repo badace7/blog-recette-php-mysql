@@ -1,5 +1,3 @@
-
-
 const burgerMenu = () => {
 
     let element = document.querySelector(".navbar-link").style;
@@ -78,9 +76,22 @@ query.addEventListener("change", whileEvent); // Permet de définir les proprié
 
 
 
-const confirmPassword = () => {
-    let password = document.querySelector("#password").value;
-    let passwordConfirm = document.querySelector("#passwordConfirm").value;
 
-    alert('On peux recup la value');
+const inputCheck = () => {
+
+    let inputChecked = document.getElementById("affichePassword");
+    let password = document.getElementById("password");
+    let passwordConfirm = document.getElementById("passwordConfirm");
+
+
+    if (inputChecked.checked == true) {
+        password.type = "text";
+        passwordConfirm.type = "text";
+
+    } else if (inputChecked.checked == false) {
+        password.type = "password";
+        passwordConfirm.type = "password";
+    }
+
+
 }

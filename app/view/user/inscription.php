@@ -23,9 +23,10 @@
 
         <label for="psw-confirm"><b class="label-input">Confirmer Mot de passe</b></label>
         <input class="input-inscription" id="passwordConfirm" type="password" placeholder="Confirmer Mot de passe" name="psw-confirm" required>
-        
+        <br>
+        <input name="affiche" id="affichePassword" onclick="inputCheck()" type="checkbox"><label for="affiche">&nbsp;&nbsp;&nbsp;Afficher le mot de passe</label>
 
-            <button type="submit" onclick="confirmPassword()" class="label-input">S'inscrire</button>
+            <button type="submit" name="submit" class="label-input">S'inscrire</button>
         </form>
     </div>
 </section>
