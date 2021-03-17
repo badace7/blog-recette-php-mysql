@@ -4,7 +4,7 @@
             <h2>S'inscrire</h2>
             <br><br>
         </div>
-        <form class="inscription-form" action="index.php?action=inscription" method="post">
+        <form class="inscription-form" action="index.php?action=inscription"  method="post">
         
         <label for="nom"><b class="label-input">Nom</b></label>
         <input class="input-inscription" type="text" placeholder="Nom" name="nom" required>

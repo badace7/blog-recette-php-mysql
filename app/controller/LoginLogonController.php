@@ -63,6 +63,7 @@ class LoginLogonController extends Controller {
             $pseudo = filter_input(INPUT_POST, 'pseudo', FILTER_SANITIZE_SPECIAL_CHARS);
             $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
             $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
+
             
             try {
                 $user = new User($email, $password, $pseudo, $nom, $prenom);
