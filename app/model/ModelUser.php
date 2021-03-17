@@ -77,9 +77,22 @@ class ModelUser extends Dao
         $pseudo = $user->getPseudo_utilisateur();
         $nom = $user->getNom_utilisateur();
         $prenom = $user->getPrenom_utilisateur();
-        $role = $user->getRole_utilisateur();
+        $id = intval($user->getId_utilisateur());
 
 
+        $bddConnect = $this->pdoConnect();
+
+
+        $requestUpdate = "UPDATE Utilisateur SET email_utilisateur=:email, pseudo_utilisateur=:pseudo, nom_utilisateur=:nom, prenom_utilisateur=:prenom, password_utilisateur=:password WHERE id_utilisateur=:id;";
+
+        $statement = $bddConnect->prepare($requestUpdate);
+            $statement->bindParam('email', $email);
+            $statement->bindParam('password', $password);
+            $statement->bindParam('pseudo', $pseudo);
+            $statement->bindParam('nom', $nom);
+            $statement->bindParam('prenom', $prenom);
+            $statement->bindParam('id', $id);
+            $statement->execute();
 
     }
 }

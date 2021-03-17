@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\entity\User;
+use app\model\ModelUser;
 
 class ParametreController extends Controller {
 
@@ -18,7 +19,6 @@ class ParametreController extends Controller {
             $this->render('user/profil');
         } else {
             $user = unserialize($_SESSION['user']);
-            $user1 = unserialize($_SESSION['user']);
 
             $email = ($_POST['email'] == '') ? $user->getEmail_utilisateur() : $user->setEmail_utilisateur(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS));
             $password = ($_POST['password'] == '') ? $user->getPassword_utilisateur() : $user->setPassword_utilisateur(password_hash(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS), PASSWORD_BCRYPT));
@@ -26,12 +26,15 @@ class ParametreController extends Controller {
             $nom = ($_POST['nom'] == '') ? $user->getNom_utilisateur() : $user->setNom_utilisateur(filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS));
             $prenom = ($_POST['prenom'] == '') ? $user->getPrenom_utilisateur() : $user->setPrenom_utilisateur(filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS));
             
-            var_dump($user1);
-            var_dump($user);
-            die();
 
-            //REPRENDRE ICI FAIRE UPDATE DE PROFIL
 
+          $model = new ModelUser();
+
+          $model->updateUser($user);
+
+          $_SESSION['user'] = serialize($user);
+          
+          header('Location: index.php');
 
         }
     }
