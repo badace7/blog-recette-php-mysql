@@ -14,7 +14,7 @@ class User {
     private $role_utilisateur;
 
    
-    function __construct($email_utilisateur = '', $password_utilisateur = '', $pseudo_utilisateur = '', $nom_utilisateur = '', $prenom_utilisateur = '')
+    private function __construct($email_utilisateur = '', $password_utilisateur = '', $pseudo_utilisateur = '', $nom_utilisateur = '', $prenom_utilisateur = '')
     {       $this->id_utilisateur = 0;
             $this->email_utilisateur = $email_utilisateur;
             $this->password_utilisateur = $password_utilisateur;

@@ -91,6 +91,13 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
         $controller->inscription();
     
         break;
+    
+    case 'ajout_recette':
+
+        $controller = new RecetteController();
+        $controller->addRecette();
+
+        break;
 
     case 'recette_pate':
         

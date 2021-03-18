@@ -1,12 +1,13 @@
+let element = document.querySelector(".navbar-link").style;
+let headerSize = document.querySelector(".navbar").style;
+let buttonCo = document.querySelector("#button-connexion").style;
+let buttonIn = document.querySelector("#button-inscription").style;
+let buttonParametre = document.querySelector("#param").style;
+
+
+
 const burgerMenu = () => {
-
-    let element = document.querySelector(".navbar-link").style;
-    let headerSize = document.querySelector(".navbar").style;
-    let buttonCo = document.querySelector("#button-connexion").style;
-    let buttonIn = document.querySelector("#button-inscription").style;
-    let buttonParametre = document.querySelector("#param").style;
-
-
+    
     let off = element.display == "none";
     let on = element.display == "flex";
 
@@ -43,12 +44,6 @@ const burgerMenu = () => {
 
 const whileEvent = (query) => {
 
-    let element = document.querySelector(".navbar-link").style;
-    let headerSize = document.querySelector(".navbar").style;
-    let buttonCo = document.querySelector("#button-connexion").style;
-    let buttonIn = document.querySelector("#button-inscription").style;
-    let buttonParam = document.querySelector("#param").style;
-
     let resolutionInferieurTablette = query.matches;
 
 
@@ -65,7 +60,7 @@ const whileEvent = (query) => {
         headerSize.height = "5.5rem";
         buttonCo.display = "none";
         buttonIn.display = "none";
-        buttonParam.display = "none";
+        buttonParametre.display = "none";
         
     } 
 }
@@ -93,5 +88,52 @@ const inputCheck = () => {
         passwordConfirm.type = "password";
     }
 
-
 }
+
+let inputIngredient = document.getElementById('input-ingredient');
+let addIngredient = document.getElementById('addIngredient');
+let removeIngredient = document.getElementById('removeIngredient');
+
+const ajouterIngredient = () => {
+    let inputElement = inputIngredient.getElementsByTagName('input');
+    let n = 1;
+    let addInput = document.createElement('input');
+    addInput.setAttribute('type', 'text');
+    addInput.setAttribute('name', 'ingredient['+(inputElement.length+n)+']');
+    addInput.setAttribute('class', 'input-ingredient');
+    addInput.setAttribute('placeholder', 'ingrédient');
+    inputIngredient.appendChild(addInput);
+}
+
+
+const retirerIngredient = () => {
+    let inputElement = inputIngredient.getElementsByTagName('input');
+    if(inputElement.length > 1) {
+        inputIngredient.removeChild(inputElement[(inputElement.length) -1]);
+    }
+}
+
+
+let inputUstensile = document.getElementById('input-ustensile');
+let addUstensile = document.getElementById('addUstensile');
+let removeUstensile = document.getElementById('removeUstensile');
+
+const ajouterUstensile = () => {
+    let inputElement = inputUstensile.getElementsByTagName('input');
+    let n = 1;
+    let addInput = document.createElement('input');
+    addInput.setAttribute('type', 'text');
+    addInput.setAttribute('name', 'ustensile['+(inputElement.length+n)+']');
+    addInput.setAttribute('class', 'input-ustensile');
+    addInput.setAttribute('placeholder', 'ustensile');
+    inputUstensile.appendChild(addInput);
+}
+
+
+const retirerUstensile = () => {
+    let inputElement = inputUstensile.getElementsByTagName('input');
+    if(inputElement.length > 1) {
+        inputUstensile.removeChild(inputElement[(inputElement.length) -1]);
+    }
+}
+

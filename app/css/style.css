@@ -8,6 +8,7 @@
     --DarkGrey: #3c393d;
     --Dark: #2b2b2b;
     --TransluGreen:  rgba(34, 49, 33, 0.6);
+    --TransluRed: rgba(104, 17, 17, 0.6);
     --White: #fff;
     --ClearGrey: #ddd;
 }
@@ -307,16 +308,27 @@ img {
 .rubrique-img {
     position: relative;
 }
-.rubrique-img span {
+.icon-heart {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    /* background :var(--Dark); */
     background: var(--TransluGreen);
-    color: var(--White);
+}
+
+.icon-close {
+    background: var(--TransluRed);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+.rubrique-img span {
     font-size: 1.4rem;
     padding: 0.3rem 0.6rem;
+    color: var(--White);
 }
+
 .rubrique-text {
     margin: 2.2rem 0;
     padding: 0 1rem;
@@ -338,17 +350,27 @@ img {
     opacity: 0.9;
     padding-bottom: 1.2rem;
 }
-.rubrique-text a {
+.rubrique-text a, .buttonAdd {
     font-family: var(--Roboto);
     font-size: 1.1rem;
     text-decoration: none;
     color: var(--DarkGrey);
     display: inline-block;
+    justify-content: space-between;
     /* background: var(--DarkGrey); */
     background: var(--TransluGreen);
     color: var(--White);
     padding: 0.55rem 1.2rem;
     transition: all 0.5s ease;
+}
+
+.buttonAdd {
+    margin-top: 4rem;
+    margin-bottom: -3rem;
+}
+
+.buttonModifier{
+    margin-left: 13.2rem;
 }
 .rubrique-text {
     background: var(--White);
@@ -611,6 +633,38 @@ footer {
     width: 17rem;
 }
 
+/* Input d'ajout d'ingrédient */
+
+.input-ingredient, .input-ustensile {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: var(--White);
+    border: 1px solid #ccc;
+}
+
+  
+
+.recette-form a {
+    background-color: var(--TransluGreen);
+    color: var(--White);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 19rem;
+    opacity: 0.9;
+}
+
+
+.recette-form {
+    background-color: var(--White);
+    margin: 5% auto 15% auto;
+    width: 20rem;
+}
+
+/* Input d'ajout d'ustensiles */
 
 
 /* Media Queries */
