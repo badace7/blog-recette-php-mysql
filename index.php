@@ -22,6 +22,12 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
 
     switch ($action) {
 
+    case 'upload':
+
+        require 'app/images/upload.php';
+    
+    break;
+
     case 'home':
         $controller = new HomeController();
         $controller->home();

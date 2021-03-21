@@ -5,7 +5,7 @@
             <br><br>
         </div>
 
-        <form class="recette-form" action="#"  method="">
+        <form class="recette-form" action="index.php?action=ajout_recette" enctype="multipart/form-data" method="post">
             
 
             <div >
@@ -13,13 +13,11 @@
                 <input class="input-ingredient" type="text" name="titre-recette" placeholder="titre" >
             </div>
 
-
-            <div >
-                <label for="image-recette"><b class="label-input">Image</b></label>
-                <input class="input-ingredient" type="file" name="image-recette" placeholder="image" >
-            </div>
-
-
+                <div >
+                    <label for="image-recette"><b class="label-input">Image</b></label>
+                    <input class="input-ingredient" type="file" name="image-recette" placeholder="image" >
+                </div>
+           
             <div >
                 <label for="titre-recette"><b class="label-input">Préparation</b></label>
                 <input class="input-ingredient" min="0" max="240" type="number" name="preparation-recette" placeholder="préparation" >
@@ -38,7 +36,7 @@
 
             <div id="input-ingredient">
                 <label for="ingredient"><b class="label-input">Ingrédient</b></label>
-                <input class="input-ingredient" type="text" name="ingredient[1]" placeholder="ingrédient" >
+                <input class="input-ingredient" type="text" name="ingredient[]" placeholder="ingrédient" >
             </div>
             <a name="ajout" onclick="ajouterIngredient()" class="label-input" id="addIngredient"><i class="fas fa-plus"></i></a>
             <a name="retrait" onclick="retirerIngredient()" class="label-input" id="removeIngredient" style="background-color:rgba(104, 17, 17, 0.6);"><i class="fas fa-minus"></i></a>
@@ -49,7 +47,7 @@
 
             <div id="input-ustensile">
                 <label for="ustensile"><b class="label-input">Ustensile</b></label>
-                <input class="input-ustensile" type="text" name="ustensile[1]" placeholder="ustensile" >
+                <input class="input-ingredient" type="text" name="ustensile[]" placeholder="titre" >
             </div>
             <a name="ajout" onclick="ajouterUstensile()" class="label-input" id="addUstensile"><i class="fas fa-plus"></i></a>
             <a name="retrait" onclick="retirerUstensile()" class="label-input" id="removeUstensile" style="background-color:rgba(104, 17, 17, 0.6);"><i class="fas fa-minus"></i></a>
@@ -60,6 +58,9 @@
                 <label for="titre-recette"><b class="label-input">Conseils</b></label>
                 <textarea class="input-ingredient" type="text" name="conseil-recette" placeholder="conseil" ></textarea>
             </div>
+            
+            <button type="submit" class="label-input">Valider</button>
+
         </form>
 
     </div>

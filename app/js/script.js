@@ -95,11 +95,11 @@ let addIngredient = document.getElementById('addIngredient');
 let removeIngredient = document.getElementById('removeIngredient');
 
 const ajouterIngredient = () => {
-    let inputElement = inputIngredient.getElementsByTagName('input');
-    let n = 1;
+    // let inputElement = inputIngredient.getElementsByTagName('input');
+    // let n = 1;
     let addInput = document.createElement('input');
     addInput.setAttribute('type', 'text');
-    addInput.setAttribute('name', 'ingredient['+(inputElement.length+n)+']');
+    addInput.setAttribute('name', 'ingredient[]');
     addInput.setAttribute('class', 'input-ingredient');
     addInput.setAttribute('placeholder', 'ingrédient');
     inputIngredient.appendChild(addInput);
@@ -119,11 +119,11 @@ let addUstensile = document.getElementById('addUstensile');
 let removeUstensile = document.getElementById('removeUstensile');
 
 const ajouterUstensile = () => {
-    let inputElement = inputUstensile.getElementsByTagName('input');
-    let n = 1;
+    // let inputElement = inputUstensile.getElementsByTagName('input');
+    // let n = 1;
     let addInput = document.createElement('input');
     addInput.setAttribute('type', 'text');
-    addInput.setAttribute('name', 'ustensile['+(inputElement.length+n)+']');
+    addInput.setAttribute('name', 'ustensile[]');
     addInput.setAttribute('class', 'input-ustensile');
     addInput.setAttribute('placeholder', 'ustensile');
     inputUstensile.appendChild(addInput);
