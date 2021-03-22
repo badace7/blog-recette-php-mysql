@@ -2,9 +2,37 @@
 
 namespace app\model;
 
+use PDO;
+use Exception;
+
 
 
 class ModelRecipe extends Dao {
+
+
+
+    public function getSaltRecipe()
+     {
+         $salee = "salée";
+
+         $bddConnect = $this->pdoConnect();
+
+         $requestRecipe = "SELECT * FROM recettes NATURAL JOIN ingredients WHERE type_recette=:salee";
+         $statement = $bddConnect->prepare($requestRecipe);
+         $statement->bindParam('salee', $salee);
+         $statement->execute();
+
+         $test = $statement->rowCount();
+         var_dump($test);
+         if ($test == 0) {
+             echo 'TEST FAIL';
+         } elseif ($test > 1) {
+             $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
+             echo '<br>' . 'REQUEST SUCCESS';
+             $test = $statement->fetch();
+             var_dump($test);
+         }
+     }
 
 
     public function newRecipe($recette, $ingredient, $ustensile, $user) {
@@ -17,6 +45,8 @@ class ModelRecipe extends Dao {
         $tempsTotal_recette = $recette->getTemps_total();
         $image_recette = $recette->getImage_recette();
         $date_recette = $recette->getDate_publication();
+        $type_recette = $recette->getType_recette();
+
         $id_utilisateur = $user->getId_utilisateur();
         $ingredients = $ingredient->getIngredients();
         $ustensiles = $ustensile->getUstensile();
@@ -26,8 +56,8 @@ class ModelRecipe extends Dao {
         $bddConnect = $this->pdoConnect();
 
 
-        $requestRecipe = "INSERT INTO recettes (`image_recette`,`titre_recette`,`conseil`,`temps_preparation`,`temps_cuisson`,`temps_total`,`date_publication`,`id_utilisateur`)
-                    VALUES (:image, :titre, :conseil, :preparation, :cuisson, :tempsTotal, :date, :id_utilisateur)";
+        $requestRecipe = "INSERT INTO recettes (`image_recette`,`titre_recette`,`conseil`,`temps_preparation`,`temps_cuisson`,`temps_total`,`date_publication`,`id_utilisateur`, `type_recette`)
+                    VALUES (:image, :titre, :conseil, :preparation, :cuisson, :tempsTotal, :date, :id_utilisateur, :type_recette)";
 
         $statement = $bddConnect->prepare($requestRecipe);
         $statement->bindParam('titre', $titre_recette);
@@ -38,6 +68,7 @@ class ModelRecipe extends Dao {
         $statement->bindParam('image', $image_recette);
         $statement->bindParam('date', $date_recette);
         $statement->bindParam('id_utilisateur', $id_utilisateur);
+        $statement->bindParam('type_recette', $type_recette);
         $statement->execute();
 
         $id_recette = $bddConnect->lastInsertId();

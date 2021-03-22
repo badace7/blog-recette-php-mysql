@@ -6,17 +6,25 @@
         </div>
 
         <form class="recette-form" action="index.php?action=ajout_recette" enctype="multipart/form-data" method="post">
-            
+            <div>
+                <label for="titre-recette"><b class="label-input">Selectionnez un type de recette</b></label>
+                <select class="input-ingredient"  name="type-recette" placeholder="type" >
+                    <option value="sucrée">Sucrée</option>
+                    <option value="salée">Salée</option>
+                </select>
+            </div>
 
             <div >
                 <label for="titre-recette"><b class="label-input">Titre de la recette</b></label>
                 <input class="input-ingredient" type="text" name="titre-recette" placeholder="titre" >
             </div>
 
-                <div >
-                    <label for="image-recette"><b class="label-input">Image</b></label>
-                    <input class="input-ingredient" type="file" name="image-recette" placeholder="image" >
-                </div>
+           
+
+            <div >
+                <label for="image-recette"><b class="label-input">Image</b></label>
+                <input class="input-ingredient" type="file" name="image-recette" placeholder="image" >
+            </div>
            
             <div >
                 <label for="titre-recette"><b class="label-input">Préparation</b></label>

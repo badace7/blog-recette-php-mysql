@@ -1,9 +1,10 @@
 <?php
-// namespace app\model;
+namespace app\model;
 
-// use PDO;
-// use Exception;
-// use PDOException;
+use app\entity\Recette;
+use PDO;
+use Exception;
+use PDOException;
 
 /**
  * Class Dao permettant la connexion a la base de donnée
@@ -47,6 +48,42 @@
 
  $test = new Dao();
  $test->pdoConnect();
+
+
+//  class ModelRecipe extends Dao
+//  {
+//      public function getSaltRecipe() :Array
+//      {
+//          $salee = "salée";
+
+//          $bddConnect = $this->pdoConnect();
+
+//          $requestRecipe = "SELECT * FROM recettes NATURAL JOIN ingredients WHERE type_recette=:salee";
+//          $statement = $bddConnect->prepare($requestRecipe);
+//          $statement->bindParam('salee', $salee);
+//          $statement->execute();
+
+//          $test = $statement->rowCount();
+//          if ($test == 0) {
+//              echo 'TEST FAIL';
+//          } elseif ($test > 1) {
+//              $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
+//              echo '<br>' . 'REQUEST SUCCESS';
+//             return $statement->fetch();
+
+//          }
+//      }
+//  }
+
+//  $test = new ModelRecipe();
+//  $objet = $test->getSaltRecipe("salée");
+
+//  var_dump($objet);
+
+
+
+
+
 
 
  class ModelLogin extends Dao {
@@ -265,29 +302,17 @@
         }
     }
     
-$test = new User('email', 'password', 'pseudo', 'nom', 'prenom');
-
-var_dump($test);
-
-
-    $test = new ModelLogin();
 
     
 
 
 
 
-    // $test = new ModelLogin();
-    // $test = $test->getUser('admin@afpa.fr');
+    $test = new ModelLogin();
+    $test = $test->getUser('admin@afpa.fr');
 
-    // $_SESSION['user'] = $test;
-
-    // extract($_SESSION['user']);
-
-
-
-
-    // var_dump($role_utilisateur);
+var_dump($test);
+   
 
 
     // // if (password_verify($password, $test['password_utilisateur'])) {

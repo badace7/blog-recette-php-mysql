@@ -24,6 +24,9 @@ class RecetteController extends Controller {
             $preparation = filter_input(INPUT_POST, 'preparation-recette', FILTER_SANITIZE_SPECIAL_CHARS);
             $cuisson = filter_input(INPUT_POST, 'cuisson-recette', FILTER_SANITIZE_SPECIAL_CHARS);
             $tempsTotal = filter_input(INPUT_POST, 'tempstotal-recette', FILTER_SANITIZE_SPECIAL_CHARS);
+            $type_recette = filter_input(INPUT_POST, 'type-recette', FILTER_SANITIZE_SPECIAL_CHARS);
+
+            
 
 
             $image = $_FILES['image-recette'];
@@ -36,7 +39,7 @@ class RecetteController extends Controller {
             $user = unserialize($_SESSION['user']);
 
 
-            $recette = new Recette($titre, $imageName, $conseil, $preparation, $cuisson, $tempsTotal);
+            $recette = new Recette($titre, $imageName, $conseil, $preparation, $cuisson, $tempsTotal, $type_recette);
             $recette->setId_utilisateur($user->getId_utilisateur());
 
 

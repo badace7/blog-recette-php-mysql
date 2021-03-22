@@ -13,9 +13,10 @@ class Recette {
     private $date_publication;
     private $id_utilisateur;
     private $image_recette;
+    private $type_recette;
 
 
-    function __construct ($titre_recette, $image_recette, $conseil, $temps_preparation, $temps_cuisson, $temps_total) {
+    function __construct ($titre_recette, $image_recette, $conseil, $temps_preparation, $temps_cuisson, $temps_total, $type_recette) {
 
         $this->id_recette = 0;
         $this->image_recette = $image_recette;
@@ -24,6 +25,7 @@ class Recette {
         $this->temps_preparation = $temps_preparation;
         $this->temps_cuisson = $temps_cuisson;
         $this->temps_total = $temps_total;
+        $this->type_recette = $type_recette;
         $this->date_publication = date('d-m-Y');
 
     }
@@ -205,6 +207,26 @@ class Recette {
     public function setImage_recette($image_recette)
     {
         $this->image_recette = $image_recette;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of type_recette
+     */ 
+    public function getType_recette()
+    {
+        return $this->type_recette;
+    }
+
+    /**
+     * Set the value of type_recette
+     *
+     * @return  self
+     */ 
+    public function setType_recette($type_recette)
+    {
+        $this->type_recette = $type_recette;
 
         return $this;
     }
