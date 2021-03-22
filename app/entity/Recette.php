@@ -15,7 +15,7 @@ class Recette {
     private $image_recette;
 
 
-    function __construct ($titre_recette, $image_recette, $conseil, $temps_preparation, $temps_cuisson, $temps_total, $date_publication) {
+    function __construct ($titre_recette, $image_recette, $conseil, $temps_preparation, $temps_cuisson, $temps_total) {
 
         $this->id_recette = 0;
         $this->image_recette = $image_recette;
@@ -24,7 +24,7 @@ class Recette {
         $this->temps_preparation = $temps_preparation;
         $this->temps_cuisson = $temps_cuisson;
         $this->temps_total = $temps_total;
-        $this->date_publication = $date_publication;
+        $this->date_publication = date('d-m-Y');
 
     }
 

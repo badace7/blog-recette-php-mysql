@@ -7,21 +7,17 @@ class Avoir {
 
 
     private $id_ustensile;
-    private $ustensile;
+    private $id_recette;
 
 
-    function __construct($id_ustensile, $ustensile)
+    function __construct($id_ustensile, $id_recette)
     {
         $this->id_ustensile = $id_ustensile;
-        $this->ustensile = $ustensile;
+        $this->id_recette = $id_recette;
     }
 
 
     
-
-
-
-
 
     /**
      * Get the value of id_ustensile
@@ -43,22 +39,24 @@ class Avoir {
         return $this;
     }
 
+   
+
     /**
-     * Get the value of ustensile
+     * Get the value of id_recette
      */ 
-    public function getUstensile()
+    public function getId_recette()
     {
-        return $this->ustensile;
+        return $this->id_recette;
     }
 
     /**
-     * Set the value of ustensile
+     * Set the value of id_recette
      *
      * @return  self
      */ 
-    public function setUstensile($ustensile)
+    public function setId_recette($id_recette)
     {
-        $this->ustensile = $ustensile;
+        $this->id_recette = $id_recette;
 
         return $this;
     }
