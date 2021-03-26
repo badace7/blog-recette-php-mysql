@@ -9,7 +9,7 @@ class Ingredient {
     private $id_ingredients;
     private $ingredients;
 
-    function __construct($ingredients)
+    function __construct($ingredients='')
     {
         $this->id_ingredients = 0;
         $this->ingredients = $ingredients;

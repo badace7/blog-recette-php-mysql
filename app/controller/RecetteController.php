@@ -11,11 +11,18 @@ use app\model\ModelRecipe;
 
 class RecetteController extends Controller {
 
-    public function addRecette() {
+    public function addRecette():void  {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $this->render('recettes/formulaireRecette');
-        } else  {
 
+            $user = unserialize($_SESSION['user']);
+            $role = $user->getRole_utilisateur();
+            if ($role != 'ROLE_ADMIN') {
+                header('Location: index.php');
+            } else {
+                $this->render('recettes/formulaireRecette');
+            }
+
+        } else {
             
             $titre = filter_input(INPUT_POST, 'titre-recette', FILTER_SANITIZE_SPECIAL_CHARS);
             $ingredients = $_POST['ingredient'];
@@ -25,21 +32,21 @@ class RecetteController extends Controller {
             $cuisson = filter_input(INPUT_POST, 'cuisson-recette', FILTER_SANITIZE_SPECIAL_CHARS);
             $tempsTotal = filter_input(INPUT_POST, 'tempstotal-recette', FILTER_SANITIZE_SPECIAL_CHARS);
             $type_recette = filter_input(INPUT_POST, 'type-recette', FILTER_SANITIZE_SPECIAL_CHARS);
+            $resume_recette = filter_input(INPUT_POST, 'resume-recette', FILTER_SANITIZE_SPECIAL_CHARS);
 
             
-
 
             $image = $_FILES['image-recette'];
             $imageName = $image['name'];
             $targetDir =  'app/images/'.$imageName;
             $fichierTmp = $image['tmp_name'];
             move_uploaded_file($fichierTmp, $targetDir);
-
+        
 
             $user = unserialize($_SESSION['user']);
 
 
-            $recette = new Recette($titre, $imageName, $conseil, $preparation, $cuisson, $tempsTotal, $type_recette);
+            $recette = new Recette($titre, $imageName, $conseil, $preparation, $cuisson, $tempsTotal, $type_recette, $resume_recette);
             $recette->setId_utilisateur($user->getId_utilisateur());
 
 
@@ -53,23 +60,50 @@ class RecetteController extends Controller {
             $model = new ModelRecipe();
             $model->newRecipe($recette, $ingredients, $ustensiles, $user);
 
-            header('Location: index.php');
+            header('Location: index.php?action=ajout_recette');
 
         }
     }
 
+    public function deleteRecette():void  {
+
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+        $type = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
+        $model = new ModelRecipe();
+        $delete = $model->deleteRecipe($id);
+
+        $type = substr($type, 9);
+
+        header('Location: index.php?action=rubrique&type='.$type);
+
+    }
     
 
-    public function recetteSalee() {
+    public function recettes($type_recette):void {
 
-        $this->render('rubriques/rubrique_salee');
+            $model = new ModelRecipe();
+            $recettes = $model->getAllRecipeByType($type_recette);
 
+
+            $this->render('rubriques/rubrique_'.$type_recette, ['recettes' => $recettes]);
     }
 
 
-    public function recetteSucree() {
+    public function afficheRecette():void  {
 
-        $this->render('rubriques/rubrique_sucree');
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+        $id = intval($id);
+        $model = new ModelRecipe();
+        $ustensiles = $model->getUstensiles($id);
+        $ingredients = $model->getIngredients($id);
+        $recette = $model->getRecipe($id);
+
+        $this->render('recettes/recette', [
+        'ingredients' => $ingredients,
+        'recette' => $recette,
+        'ustensiles' => $ustensiles
+        ]);
 
     }
+
 }

@@ -2,36 +2,28 @@
 
 namespace app\model;
 
+use app\entity\Ingredient;
 use PDO;
 use Exception;
+use app\entity\Recette;
 
 
 
 class ModelRecipe extends Dao {
 
 
-
-    public function getSaltRecipe()
+    public function getAllRecipeByType($type_recette): Array
      {
-         $salee = "salée";
 
          $bddConnect = $this->pdoConnect();
 
-         $requestRecipe = "SELECT * FROM recettes NATURAL JOIN ingredients WHERE type_recette=:salee";
+         $requestRecipe = "SELECT * FROM recettes WHERE type_recette=:type ORDER BY `id_recette` DESC";
          $statement = $bddConnect->prepare($requestRecipe);
-         $statement->bindParam('salee', $salee);
+         $statement->bindParam('type', $type_recette);
          $statement->execute();
-
-         $test = $statement->rowCount();
-         var_dump($test);
-         if ($test == 0) {
-             echo 'TEST FAIL';
-         } elseif ($test > 1) {
-             $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
-             echo '<br>' . 'REQUEST SUCCESS';
-             $test = $statement->fetch();
-             var_dump($test);
-         }
+         
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
+           return $statement->fetchAll();
      }
 
 
@@ -46,6 +38,7 @@ class ModelRecipe extends Dao {
         $image_recette = $recette->getImage_recette();
         $date_recette = $recette->getDate_publication();
         $type_recette = $recette->getType_recette();
+        $resume_recette = $recette->getResume();
 
         $id_utilisateur = $user->getId_utilisateur();
         $ingredients = $ingredient->getIngredients();
@@ -56,8 +49,8 @@ class ModelRecipe extends Dao {
         $bddConnect = $this->pdoConnect();
 
 
-        $requestRecipe = "INSERT INTO recettes (`image_recette`,`titre_recette`,`conseil`,`temps_preparation`,`temps_cuisson`,`temps_total`,`date_publication`,`id_utilisateur`, `type_recette`)
-                    VALUES (:image, :titre, :conseil, :preparation, :cuisson, :tempsTotal, :date, :id_utilisateur, :type_recette)";
+        $requestRecipe = "INSERT INTO recettes (`image_recette`,`titre_recette`,`conseil`,`temps_preparation`,`temps_cuisson`,`temps_total`,`date_publication`,`id_utilisateur`, `type_recette`, `resume`)
+                    VALUES (:image, :titre, :conseil, :preparation, :cuisson, :tempsTotal, :date, :id_utilisateur, :type_recette, :resume_recette)";
 
         $statement = $bddConnect->prepare($requestRecipe);
         $statement->bindParam('titre', $titre_recette);
@@ -69,6 +62,7 @@ class ModelRecipe extends Dao {
         $statement->bindParam('date', $date_recette);
         $statement->bindParam('id_utilisateur', $id_utilisateur);
         $statement->bindParam('type_recette', $type_recette);
+        $statement->bindParam('resume_recette', $resume_recette);
         $statement->execute();
 
         $id_recette = $bddConnect->lastInsertId();
@@ -120,8 +114,64 @@ class ModelRecipe extends Dao {
 
         }
 
+
     }
 
+    public function deleteRecipe($id) {
+
+        $bddConnect = $this->pdoConnect();
+
+        $requestDelete = "DELETE FROM recettes WHERE id_recette=:id";
+        $statement = $bddConnect->prepare($requestDelete);
+        $statement->bindParam('id', $id);
+        $statement->execute();
+    }
+
+    public function getIngredients($id):array {
+
+        $bddConnect = $this->pdoConnect();
+        $requestIngredient = "SELECT * FROM ingredients NATURAL JOIN Composer WHERE id_recette=:id";
+        $statement = $bddConnect->prepare($requestIngredient);
+        $statement->bindParam('id', $id);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Ingredient');
+        return $statement->fetchAll();
+    }
+
+    public function getRecipe($id):Recette {
+
+        $bddConnect = $this->pdoConnect();
+        $requestRecipe = "SELECT * FROM recettes WHERE id_recette=:id";
+        $statement = $bddConnect->prepare($requestRecipe);
+        $statement->bindParam('id', $id);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
+        
+        return $statement->fetch(); 
+    }
+
+
+    public function getUstensiles($id):array {
+
+        $bddConnect = $this->pdoConnect();
+        $requestUstensiles = "SELECT * FROM Ustensiles NATURAL JOIN Avoir WHERE id_recette=:id";
+        $statement = $bddConnect->prepare($requestUstensiles);
+        $statement->bindParam('id', $id);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Ustensile');
+        return $statement->fetchAll();
+    }
+
+
+    public function getLastRecipe():array {
+
+        $bddConnect = $this->pdoConnect();
+        $requestLastRecipe = "SELECT * FROM recettes ORDER BY id_recette DESC LIMIT 6";
+        $statement = $bddConnect->query($requestLastRecipe);
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
+        return $statement->fetchAll();
+        
+    }
 
 
 }

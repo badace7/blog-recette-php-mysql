@@ -26,7 +26,7 @@
         <br>
         <input name="affiche" id="affichePassword" onclick="inputCheck()" type="checkbox"><label for="affiche">&nbsp;&nbsp;&nbsp;Afficher le mot de passe</label>
 
-            <button type="submit" name="submit" class="label-input">S'inscrire</button>
+            <button type="submit" name="submit" id="buttonIns" class="label-input">S'inscrire</button>
         </form>
     </div>
 </section>

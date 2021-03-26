@@ -322,6 +322,11 @@ img {
     right: 10px;
 }
 
+.icon-close a {
+    text-decoration: none;
+    color: #fff;
+}
+
 
 .rubrique-img span {
     font-size: 1.4rem;
@@ -449,7 +454,7 @@ footer {
     box-sizing: border-box;
   }
   
-  .connect-form button {
+  .connect-form button, .recipe-button {
     background-color: var(--TransluGreen);
     color: white;
     padding: 14px 20px;
@@ -490,6 +495,11 @@ footer {
     width: 19rem;
     opacity: 0.9;
 }
+
+#buttonIns:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+} 
 
 
 .inscription-form {
@@ -664,7 +674,14 @@ footer {
     width: 20rem;
 }
 
-/* Input d'ajout d'ustensiles */
+.textareaConseil {
+
+    margin-left: auto;
+    margin-right: auto;
+    height: 25rem;
+
+
+}
 
 
 /* Media Queries */
@@ -696,6 +713,13 @@ footer {
     .conseils-content, .comment-content  {
         width: 75%;
     }
+    
+    .rubrique-item {
+        width:65%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 
 }
 
@@ -754,6 +778,9 @@ footer {
     .recette-content img, .table-container table,
     .conseils-content, .comment-content {
         width: 60%;
+    }
+    .rubrique-item {
+        width:100%;
     }
 
     #param {

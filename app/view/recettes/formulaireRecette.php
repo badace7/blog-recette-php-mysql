@@ -19,6 +19,10 @@
                 <input class="input-ingredient" type="text" name="titre-recette" placeholder="titre" >
             </div>
 
+            <div >
+                <label for="titre-recette"><b class="label-input">Résumé</b></label>
+                <textarea class="input-ingredient" type="text" name="resume-recette" placeholder="résumé" ></textarea>
+            </div>
            
 
             <div >
@@ -55,7 +59,7 @@
 
             <div id="input-ustensile">
                 <label for="ustensile"><b class="label-input">Ustensile</b></label>
-                <input class="input-ingredient" type="text" name="ustensile[]" placeholder="titre" >
+                <input class="input-ingredient" type="text" name="ustensile[]" placeholder="ustensile">
             </div>
             <a name="ajout" onclick="ajouterUstensile()" class="label-input" id="addUstensile"><i class="fas fa-plus"></i></a>
             <a name="retrait" onclick="retirerUstensile()" class="label-input" id="removeUstensile" style="background-color:rgba(104, 17, 17, 0.6);"><i class="fas fa-minus"></i></a>
@@ -64,10 +68,10 @@
 
             <div id="input-ingredient">
                 <label for="titre-recette"><b class="label-input">Conseils</b></label>
-                <textarea class="input-ingredient" type="text" name="conseil-recette" placeholder="conseil" ></textarea>
+                <textarea class="input-ingredient textareaConseil" type="text" name="conseil-recette" placeholder="conseils" ></textarea>
             </div>
             
-            <button type="submit" class="label-input">Valider</button>
+            <button type="submit" class="recipe-button">Valider</button>
 
         </form>
 

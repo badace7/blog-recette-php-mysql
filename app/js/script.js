@@ -137,3 +137,23 @@ const retirerUstensile = () => {
     }
 }
 
+const checkPassword = () => {
+    let pass = document.getElementById('password').value;
+    let passConf2 = document.getElementById('passwordConfirm').value;
+    let inscription = document.getElementById('buttonIns');
+    
+    if(pass != passConf2) {
+        inscription.setAttribute('disabled', 'true');
+
+    } else {
+        inscription.removeAttribute('disabled');
+    }
+    
+    
+}
+
+let passConf = document.getElementById('passwordConfirm');
+
+if (passConf != null) {
+    passConf.addEventListener('change', checkPassword);
+}

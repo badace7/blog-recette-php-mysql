@@ -22,8 +22,8 @@
                     </a>
                 <div  class="navbar-link">
                     <a href="index.php?action=home">accueil</a>
-                    <a href="index.php?action=rubrique_sucree">sucrées</a>
-                    <a href="index.php?action=rubrique_salee">salées</a>
+                    <a href="index.php?action=rubrique&type=sucree">sucrées</a>
+                    <a href="index.php?action=rubrique&type=salee">salées</a>
                     <a href="index.php?action=apropos">à propos</a>
                     <?php if($connected){  
                         echo '<script>hide = true;</script><a id="button-inscription" style="display:none;" href="#">s\'inscrire</a><a id="param" href="index.php?action=parametre">paramètre</a><a id="button-connexion" style="display:none;" href="index.php?action=deconnect">se deconnecter</a>';

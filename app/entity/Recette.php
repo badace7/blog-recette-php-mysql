@@ -14,9 +14,10 @@ class Recette {
     private $id_utilisateur;
     private $image_recette;
     private $type_recette;
+    private $resume;
 
 
-    function __construct ($titre_recette, $image_recette, $conseil, $temps_preparation, $temps_cuisson, $temps_total, $type_recette) {
+    function __construct ($titre_recette='', $image_recette='', $conseil='', $temps_preparation='', $temps_cuisson='', $temps_total='', $type_recette='', $resume='') {
 
         $this->id_recette = 0;
         $this->image_recette = $image_recette;
@@ -26,6 +27,7 @@ class Recette {
         $this->temps_cuisson = $temps_cuisson;
         $this->temps_total = $temps_total;
         $this->type_recette = $type_recette;
+        $this->resume = $resume;
         $this->date_publication = date('d-m-Y');
 
     }
@@ -227,6 +229,26 @@ class Recette {
     public function setType_recette($type_recette)
     {
         $this->type_recette = $type_recette;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of resume
+     */ 
+    public function getResume()
+    {
+        return $this->resume;
+    }
+
+    /**
+     * Set the value of resume
+     *
+     * @return  self
+     */ 
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
 
         return $this;
     }

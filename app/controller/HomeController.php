@@ -1,15 +1,17 @@
 <?php
 namespace app\controller;
 
+use app\model\ModelRecipe;
+
 
 
 class HomeController extends Controller {
 
     public function home() {
 
-        $this->render('accueil');
-        
-
+        $model = new ModelRecipe();
+        $lastRecipe = $model->getLastRecipe();
+        $this->render('accueil', ['lastRecipe' => $lastRecipe]);
     }
 
 

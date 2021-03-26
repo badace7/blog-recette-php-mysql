@@ -2,10 +2,10 @@
     <div class="container">
         <div class="recette-content">
             <div class="titre">
-                <h2>Recette tortillas</h2>
+                <h2><?= $recette->getTitre_recette()?></h2>
             </div>
             <div>
-                <img src="app/images/salee/tortillas.jpg" alt="">
+                <img src="app/images/<?= $recette->getImage_recette() ?>" alt="">
             </div>
 
             <div class="table-container">
@@ -14,38 +14,35 @@
                         <th>Temps de préparation</th>
                     </tr>
                     <tr>
-                        <td>Préparation : x min</td>
+                        <td>Préparation : <?= $recette->getTemps_preparation() ?></td>
                     </tr>
                     <tr>
-                        <td>Cuisson : x min</td>
+                        <td>Cuisson : <?= $recette->getTemps_cuisson() ?></td>
                     </tr>
                     <tr>
-                        <td>Temps total : x min</td>
-                    </tr>
-                    <tr>
-                        <th>Ustensiles</th>
-                    </tr>
-                    <tr>
-                        <td>Ustensile 1</td>
-                    </tr>
-                    <tr>
-                        <td>Ustensile 2</td>
-                    </tr>
-                    <tr>
-                        <td>Ustensile 3</td>
-                    </tr>
+                        <td>Temps total : <?= $recette->getTemps_total() ?></td>
+                    </tr>';
                     <tr>
                         <th>Ingrédients</th>
                     </tr>
-                    <tr>
-                        <td>Ingrédient 1</td>
-                    </tr>
-                    <tr>
-                        <td>Ingrédient 2</td>
-                    </tr>
-                    <tr>
-                        <td>Ingrédient 3</td>
-                    </tr>
+                    <?php 
+                     
+                    foreach ($ingredients as $ingredient) {
+                        echo '
+                   <tr>
+                       <td>'.$ingredient->getIngredients().'</td>
+                   </tr>';
+                     }
+                    echo '<tr>
+                            <th>Ustensiles</th>
+                        </tr>'; 
+                        foreach ($ustensiles as $ustensile) {
+                            echo '
+                       <tr>
+                           <td>'.$ustensile->getUstensile().'</td>
+                       </tr>';
+                    }
+                    ?>
                 </table>
             </div>
 
@@ -55,8 +52,7 @@
                     <div>
                         <h2>Conseils</h2>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptas autem quidem, debitis eum ipsa! Iusto aperiam assumenda architecto necessitatibus incidunt quod natus labore impedit illum, cumque ut maxime repellendus molestiae itaque commodi, odio hic nisi id soluta pariatur est.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ducimus perspiciatis eius suscipit deleniti eum voluptatum commodi assumenda tempora magni illum provident iusto possimus, voluptas sequi voluptatibus asperiores inventore incidunt.</p>
+                    <p><?= $recette->getConseil() ?></p>
                 </div>
             </div>
 

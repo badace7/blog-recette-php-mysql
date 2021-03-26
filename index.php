@@ -42,18 +42,17 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
         break;
 
 
-    case 'rubrique_salee':
+    case 'rubrique':
+        $type_recette = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
         $controller = new RecetteController();
-        $controller->recetteSalee();
+        $controller->recettes($type_recette);
 
         break;
 
-
-
-    case 'rubrique_sucree':
+    case 'delete':
         $controller = new RecetteController();
-        $controller->recetteSucree();
-    
+        $controller->deleteRecette();
+
         break;
      
 
@@ -105,10 +104,10 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS)?? 'ho
 
         break;
 
-    case 'recette_pate':
+    case 'recette':
         
-        $controller = new LastPostController();
-        $controller->recettePate();
+        $controller = new RecetteController();
+        $controller->afficheRecette();
     
         break;
     

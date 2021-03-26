@@ -8,7 +8,7 @@ class Ustensile {
     private $id_ustensile;
     private $ustensile;
 
-    function __construct($ustensile)
+    function __construct($ustensile='')
     {
         $this->id_ustensile = 0;
         $this->ustensile = $ustensile;

@@ -26,7 +26,6 @@ use PDOException;
                 $pdo = new PDO(self::DATA_SERVER_NAME, self::USERNAME, self::PASSWORD);
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                echo 'DATABASE CONNECTED';
 
                 self::$connectBdd = $pdo;
 
