@@ -9,11 +9,14 @@ class Commentaire {
     private $date_commentaire;
     private $id_utilisateur;
     private $id_recette;
+    private $pseudo_utilisateur;
 
-    private function __construct($commentaire,$date_commentaire) {
+    function __construct($commentaire = '', $id_utilisateur = '', $id_recette = '') {
         $this->id_commentaire = 0;
         $this->commentaire = $commentaire;
-        $this->date_commentaire = $date_commentaire;
+        $this->id_utilisateur = $id_utilisateur;
+        $this->id_recette = $id_recette;
+        $this->date_commentaire = date('d-m-Y à h:i');
     }
 
     /**
@@ -112,6 +115,26 @@ class Commentaire {
     public function setId_commentaire($id_commentaire)
     {
         $this->id_commentaire = $id_commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of pseudo_utilisateur
+     */ 
+    public function getPseudo_utilisateur()
+    {
+        return $this->pseudo_utilisateur;
+    }
+
+    /**
+     * Set the value of pseudo_utilisateur
+     *
+     * @return  self
+     */ 
+    public function setPseudo_utilisateur($pseudo_utilisateur)
+    {
+        $this->pseudo_utilisateur = $pseudo_utilisateur;
 
         return $this;
     }

@@ -7,7 +7,7 @@
         </div>
         <a href="index.php?action=profil"><div class="parametre-button">Profil</div></a>
         <?php if($role == "ROLE_ADMIN") {
-            echo '<a href="#"><div class="parametre-button">Gestion des comptes</div></a>';
+            echo '<a href="index.php?action=gestion-user"><div class="parametre-button">Gestion des comptes</div></a>';
         }
         ?>
         <div style ="margin-bottom: 10rem;"></div>

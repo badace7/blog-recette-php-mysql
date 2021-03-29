@@ -17,7 +17,7 @@
             echo '
                 <!-- publication -->
                 <div class="accueil-item">
-                    <a href="index.php?action=recette_pate"><div class="accueil-img">
+                    <a href="index.php?action=recette&id='.$lastRecipe->getId_recette().'"><div class="accueil-img">
                     <img src="app/images/'.$lastRecipe->getImage_recette().'" alt=""></img>
                         <span>
                             <i class="far fa-heart">
@@ -26,7 +26,7 @@
                         <span>'.$lastRecipe->getTitre_recette().'</span>
                     </div></a>
                     <div class="accueil-titre">
-                        <a href="index.php?action=recette_pate">'.$lastRecipe->getTitre_recette().'</a>
+                        <a href="index.php?action=recette&id='.$lastRecipe->getId_recette().'">'.$lastRecipe->getTitre_recette().'</a>
                     </div>
                 </div>';
           }?>

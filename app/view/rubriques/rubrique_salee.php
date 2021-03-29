@@ -3,7 +3,7 @@
     <section class="rubrique" id="rubrique">
         <div class="container">
             <div class="titre">
-                <h2>Recettes salées</h2>
+                <h2>Recettes <?= $recettes[0]->getType_recette(); ?>s</h2>
                 <?php if($role == 'ROLE_ADMIN') {
                     echo '<a href="index.php?action=ajout_recette"class="buttonAdd">Ajouter une recette</a>';
                 }?>
@@ -34,5 +34,10 @@
                 </div>
             </div>
         </div>
+        <div style="margin-bottom:6rem;"></div>
+        <?php if ($role == 'ROLE_USER' || !$connected) {
+            echo '<div style="margin-bottom:12rem;"></div>';
+        }
+        ?>
     </section>
 

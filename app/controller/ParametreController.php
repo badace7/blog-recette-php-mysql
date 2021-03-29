@@ -38,4 +38,32 @@ class ParametreController extends Controller {
 
         }
     }
+
+
+    public function gestionUser() {
+
+        $user = unserialize($_SESSION['user']);
+
+        if ($user->getRole_utilisateur() != 'ROLE_ADMIN') {
+            header('Location : index.php');
+        } else {
+            
+
+            $model = new ModelUser();
+            $allUser = $model->getAllUser();
+
+            $this->render('user/gestionuser', ['allUser' => $allUser]);
+        }
+
+    }
+
+    public function deleteUser() {
+
+        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
+        $id = intval($id);
+
+        $model = new ModelUser();
+        $model->delete($id);
+        header('Location: index.php?action=gestion-user');
+    }
 }

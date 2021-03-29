@@ -62,43 +62,40 @@
                     <div>
                         <h2>Votre commentaire</h2>
                     </div>
+                    <?php if (!$connected) {
+                        echo '
                     <div class="none-comment">Vous devez être connecté pour rédiger un commentaire</div>
+                    ';
+                    } ?>
+                    <br>
                     <div>
-                        <form action="post">
-                            <!-- TextArea, input à faire -->
+                        <form action="index.php?action=comment&id=<?=$recette->getId_recette()?>" method="post">
+                            <Textarea style="width:100%; height:7rem;" name="commentaire" required></Textarea>
+                            <input class="button-comment" type="submit" value="Commenter">
                         </form>
                     </div>
                 </div>
+                <br>
                 <div>
-                    <h2>Commentaires n</h2>
+                    <h2>Commentaires <?= count($commentaires) ?></h2>
                 </div>
-                <div class="comment-post">
+                <?php foreach ($commentaires as $commentaire) {
+                    echo
+                
+                ' <div class="comment-post">
                     <div class="postby-date">
-                        <div>Pseudo 1</div><div class="space"></div>
-                        <div>date / time</div>
+                        <div>'.$commentaire->getPseudo_utilisateur().'</div><div class="space"></div>
+                        <div style="position:absolute; right:30rem;">Le '.$commentaire->getDate_commentaire().'</div>
                     </div>
                     <div class="comment">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, incidunt nesciunt quibusdam amet laudantium voluptatem?</p>
+                        <p>'.$commentaire->getCommentaire().'</p>
                     </div>
-                </div>
-                <div class="comment-post">
-                    <div class="postby-date">
-                        <div>Pseudo 2</div><div class="space"></div>
-                        <div>date / time</div>
-                    </div>
-                    <div class="comment">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, incidunt nesciunt quibusdam amet laudantium voluptatem?</p>
-                    </div>
-                </div>
-                <div class="comment-post">
-                    <div class="postby-date">
-                        <div>Pseudo 3</div><div class="space"></div>
-                        <div>date / time</div>
-                    </div>
-                    <div class="comment">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, incidunt nesciunt quibusdam amet laudantium voluptatem?</p>
-                    </div>
-                </div>
+                </div>';
+                if($role == 'ROLE_ADMIN'){
+                    echo '<a style="margin-left:5.5rem; text-decoration:none; color:red;" href="index.php?action=deleteComment&id='.$commentaire->getId_commentaire().'&id2='.$recette->getId_recette().'">Supprimer</a>';
+                }
+
+                } ?>
             </div>
         </div>
     </div>

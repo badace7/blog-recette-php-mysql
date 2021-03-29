@@ -95,4 +95,25 @@ class ModelUser extends Dao
             $statement->execute();
 
     }
+
+    public function getAllUser() :array {
+
+        $bddConnect = $this->pdoConnect();
+
+        $requestAllUser = "SELECT `email_utilisateur`,`pseudo_utilisateur`, `id_utilisateur` FROM Utilisateur;";
+        $statement = $bddConnect->query($requestAllUser);
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\User');
+        return $statement->fetchAll();
+    }
+
+    public function delete($id):void {
+
+        $bddConnect = $this->pdoConnect();
+
+        $requestDeleteUser = "DELETE FROM Utilisateur WHERE id_utilisateur=:id";
+        $statement = $bddConnect->prepare($requestDeleteUser);
+        $statement->bindParam('id', $id);
+        $statement->execute();
+
+    }
 }

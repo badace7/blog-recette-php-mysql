@@ -33,4 +33,10 @@
                 </div>
             </div>
         </div>
+        <div style="margin-bottom:6rem;"></div>
+
+        <?php if ($role == 'ROLE_USER' || !$connected) {
+            echo '<div style="margin-bottom:12rem;"></div>';
+        }
+        ?>
     </section>

@@ -14,7 +14,7 @@ class ModelRecipe extends Dao {
 
     public function getAllRecipeByType($type_recette): Array
      {
-
+        
          $bddConnect = $this->pdoConnect();
 
          $requestRecipe = "SELECT * FROM recettes WHERE type_recette=:type ORDER BY `id_recette` DESC";
@@ -22,8 +22,8 @@ class ModelRecipe extends Dao {
          $statement->bindParam('type', $type_recette);
          $statement->execute();
          
-        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
-           return $statement->fetchAll();
+            $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'app\entity\Recette');
+            return $statement->fetchAll();
      }
 
 

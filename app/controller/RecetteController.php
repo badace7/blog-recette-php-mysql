@@ -8,6 +8,7 @@ use app\entity\Composer;
 use app\entity\Ustensile;
 use app\entity\Ingredient;
 use app\model\ModelRecipe;
+use app\model\ModelComment;
 
 class RecetteController extends Controller {
 
@@ -80,28 +81,32 @@ class RecetteController extends Controller {
     
 
     public function recettes($type_recette):void {
+       
 
             $model = new ModelRecipe();
             $recettes = $model->getAllRecipeByType($type_recette);
-
-
+            
             $this->render('rubriques/rubrique_'.$type_recette, ['recettes' => $recettes]);
     }
 
 
-    public function afficheRecette():void  {
+    public function afficheRecette($id_recette):void  {
 
-        $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
-        $id = intval($id);
+        $id = intval($id_recette);
         $model = new ModelRecipe();
         $ustensiles = $model->getUstensiles($id);
         $ingredients = $model->getIngredients($id);
         $recette = $model->getRecipe($id);
 
+
+        $model = new ModelComment();
+        $comments = $model->getComments($id_recette);
+
         $this->render('recettes/recette', [
         'ingredients' => $ingredients,
         'recette' => $recette,
-        'ustensiles' => $ustensiles
+        'ustensiles' => $ustensiles,
+        'commentaires' => $comments
         ]);
 
     }

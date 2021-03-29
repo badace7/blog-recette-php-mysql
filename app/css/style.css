@@ -594,6 +594,15 @@ footer {
     border-radius: 0.5rem;
 }
 
+.button-comment {
+    background-color: var(--TransluGreen);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 20%;
+}
+
 /* Paramètre */
 
 .parametre-button {
