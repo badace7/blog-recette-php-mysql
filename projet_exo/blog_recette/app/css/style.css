@@ -1,0 +1,842 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/*Paramètre généraux de la page HTML */
+:root {
+    --Playfair: 'Playfair Display', serif;
+    --Quicksand: 'Quicksand', sans-serif;
+    --Roboto: 'Roboto', sans-serif;
+    --DarkGrey: #3c393d;
+    --Dark: #2b2b2b;
+    --TransluGreen:  rgba(34, 49, 33, 0.6);
+    --TransluRed: rgba(104, 17, 17, 0.6);
+    --White: #fff;
+    --ClearGrey: #ddd;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: var(--Quicksand);
+}
+
+body {
+    line-height: 1.4;
+    color: var(--DarkGrey);
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 1.2rem;
+}
+
+
+/* Header */
+
+
+
+/* header {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/main-recette.jpg) center/ cover no-repeat fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+} */
+
+.navbar {
+    /* background: rgba(0, 0, 0, 0.6); */
+    /* background: rgba(25, 32, 24, 0.6); */
+    background: var(--TransluGreen);
+    padding: 1.2rem;
+    height: 5.5rem;
+}
+
+.navbar-logo {
+    color: var(--White);
+    font-size: 3rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--Playfair);
+    letter-spacing: 1px;
+}
+
+.navbar-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.navbar-link a{
+    text-transform: uppercase;
+    font-family: var(--Roboto);
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--White);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.4rem 0.1rem;
+    letter-spacing: 0px;
+    top:4rem;
+    font-size: 0.8rem;
+}
+
+.navbar-link a:hover {
+    opacity: 0.7;
+}
+
+.banner {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--White);
+}
+.banner-titre {
+    font-size: 3rem;
+    font-family: var(--Playfair);
+    line-height: 1.2;
+}
+
+.banner-titre span {
+    font-family: var(--Playfair);
+    /* color: var(--Dark);  */
+    color: rgb(49, 71, 47);
+
+}
+
+.banner p {
+    padding: 1rem 0 2rem 0;
+    font-size:  1.2rem;
+    text-transform: capitalize;
+    font-family: var(--Roboto);
+    font-weight: 300;
+    word-spacing: 2px;
+}
+
+.banner form {
+
+    background: var(--White);
+    border-radius: 2rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-input {
+    font-family: var(--Roboto);
+    font-size: 1.1rem;
+    width: 100%;
+    outline: 0;
+    padding: 0.6rem 0;
+    border: none;
+}
+
+.search-input::placeholder {
+    text-transform: capitalize;
+}
+
+.search-btn {
+    width: 40px;
+    font-size: 1.1rem;
+    color: var(--DarkGrey);
+    border: none;
+    background: transparent;
+    outline: 0;
+    cursor: pointer;
+    
+
+}
+
+.button-co a{
+    text-decoration: none;
+    color:var(--White);
+    font-family: var(--Roboto);
+}
+
+.button-co {
+    display:flex;
+    right:0;
+    position: absolute;
+    top:0;
+    margin-right:1rem;
+}
+
+.burger-icon {
+    visibility: visible;
+    margin-bottom: 5rem;
+    text-decoration: none;
+    bottom: 3rem;
+    outline: none;
+}
+
+.burger-icon i {
+    position: absolute;
+    font-size: 2rem;
+    left:0;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.navbar-link {
+    float: none;
+    text-align: left;
+    margin-left: -2rem;
+}
+
+
+.button-co {
+    visibility: hidden;
+}
+
+/* .navbar-link .navbar-co {
+    display: none;
+} */
+
+.navbar-link a, .burger-icon i { 
+    text-decoration: none; 
+    color: var(--White);
+    outline: none;
+}
+
+
+
+
+/* accueil */
+.accueil {
+    padding: 4.5rem 0;
+}
+
+.titre {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.titre h2 {
+    font-family: var(--Playfair);
+    font-size: 2.4rem;
+}
+
+.titre p {
+    text-transform: uppercase;
+    padding: 0.6rem 0;
+}
+
+.accueil-content {
+    margin: 2rem 0;
+}
+
+.accueil-item {
+    cursor: pointer;
+    margin: 1.5rem 0;
+}
+
+.accueil-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.accueil-img::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.accueil-img img {
+    transition: all 0.5s ease;
+}
+
+.accueil-item:hover img {
+    transform: scale(1.2);
+}
+
+.accueil-img span:first-of-type {
+    position: absolute;
+    z-index: 1;
+    top:10px;
+    left: 10px;
+    /* background: var(--Dark); */
+    background: var(--TransluGreen);
+    color: var(--White);
+    padding: 0.25rem 1rem;
+}
+
+.accueil-img span:last-of-type {
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    right: 10px;
+    color: var(--White);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.accueil-titre {
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+.accueil-titre a {
+    color: var(--DarkGrey);
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: var(--Playfair);
+}
+
+/* rubrique */
+.rubrique {
+    background: #f9f9f9;
+    padding: 4.5rem 0;
+    margin-top: -2.8rem;
+}
+.rubrique-content {
+    margin: 2rem 0;
+}
+.rubrique-img {
+    position: relative;
+}
+.icon-heart {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--TransluGreen);
+}
+
+.icon-close {
+    background: var(--TransluRed);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.icon-close a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.rubrique-img span {
+    font-size: 1.4rem;
+    padding: 0.3rem 0.6rem;
+    color: var(--White);
+}
+
+.rubrique-text {
+    margin: 2.2rem 0;
+    padding: 0 1rem;
+}
+.rubrique-text span {
+    font-weight: 300;
+    display: block;
+    padding-bottom: 0.5rem;
+}
+.rubrique-text h2 {
+    font-family: var(--Playfair);
+    padding: 1rem 0;
+    font-size: 1.65rem;
+    font-weight: 500;
+}
+.rubrique-text p {
+    font-weight: 300;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    padding-bottom: 1.2rem;
+}
+.rubrique-text a, .buttonAdd {
+    font-family: var(--Roboto);
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--DarkGrey);
+    display: inline-block;
+    justify-content: space-between;
+    /* background: var(--DarkGrey); */
+    background: var(--TransluGreen);
+    color: var(--White);
+    padding: 0.55rem 1.2rem;
+    transition: all 0.5s ease;
+}
+
+.buttonAdd {
+    margin-top: 4rem;
+    margin-bottom: -3rem;
+}
+
+.buttonModifier{
+    margin-left: 13.2rem;
+}
+.rubrique-text {
+    background: var(--White);
+}
+
+/* apropos */
+.apropos {
+    padding: 4.5rem 0;
+}
+.apropos-text {
+    margin: 2rem 0;
+}
+.apropos-text > p {
+    font-size: 1.1rem;
+    padding: 0.6rem 0;
+    opacity: 0.8;
+}
+
+/* footer */
+
+footer {
+    background: var(--TransluGreen);
+    color: var(--White);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+}
+
+.social a{
+    text-decoration: none;
+    color: var(--White);
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social a i {
+    border: 2px solid var(--White);
+    border-radius: 50%;
+    display: flex;
+    margin: 0 0.3rem;
+    transition: all 0.5s ease;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social a i:hover {
+    background:var(--White);
+    border: 2px solid var(--White);
+    border-radius: 50%;
+    color:  var(--TransluGreen);
+}
+
+.footer span {
+    margin-top: 1rem;
+    display: block;
+    font-family: var(--Playfair);
+    letter-spacing: 2px;
+}
+
+/* Formulaire de connect */
+.input-form {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .connect-form button, .recipe-button {
+    background-color: var(--TransluGreen);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 100%;
+  }
+  
+  .connect-form {
+    background-color: var(--White);
+    margin: 5% auto 15% auto;
+    width: 17rem;
+  }
+
+  .connect-form label {
+      display:flex;
+  }
+
+/*Formulaire d'inscription*/
+.input-inscription {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: var(--White);
+    border: 1px solid #ccc;
+}
+
+  
+
+.inscription-form button {
+    background-color: var(--TransluGreen);
+    color: var(--White);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 19rem;
+    opacity: 0.9;
+}
+
+#buttonIns:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+} 
+
+
+.inscription-form {
+    background-color: var(--White);
+    margin: 5% auto 15% auto;
+    width: 20rem;
+}
+
+.label-input {
+    font-family: var(--Playfair);
+}
+
+
+/* Recette */
+.recette-content img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-container table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 3.5rem;
+    border-collapse: collapse;
+}
+
+.table-container th {
+    text-align: left;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--TransluGreen);
+    color: var(--White);
+}
+
+.table-container td, th {
+    border: 1px solid var(--ClearGrey);
+    padding: 8px;
+}
+
+
+.table-recette td:hover {
+    background-color: var(--ClearGrey);
+}
+
+.conseils-content, .comment-content {
+    margin-top: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
+
+.conseils-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* Commentaire */
+.none-comment {
+    border: none;
+    background-color: var(--ClearGrey);
+    text-align: center;
+    padding: 20px 20px;
+    margin-top: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.postby-date:first-child {
+    margin-top: 1.5rem;
+}
+
+.postby-date {
+    display:flex;
+}
+.postby-date .space {
+    margin-left: 5rem;
+}
+
+.comment p {
+    margin-left: 5rem;
+    margin-top: 1rem;
+}
+
+.comment-content {
+    margin-bottom: 4rem;
+}
+
+.comment p {
+    padding:1rem;
+    border: none;
+    background-color: var(--ClearGrey);
+    border-radius: 0.5rem;
+}
+
+.button-comment {
+    background-color: var(--TransluGreen);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 20%;
+}
+
+/* Paramètre */
+
+.parametre-button {
+    border: none;
+    background-color: rgba(34, 49, 33, 0.6);
+    padding: 3rem; 
+    width:35%; 
+    margin-right:auto; 
+    margin-left:auto; 
+    margin-bottom: 5rem; 
+    color:#fff; 
+    text-align:center;
+}
+
+.parametre .container a {
+    text-decoration:none;
+}
+
+/* Formulaire profil */
+
+
+.input-profil {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: var(--White);
+    border: 1px solid #ccc;
+}
+
+
+.formulaire-profil button {
+    background-color: var(--TransluGreen);
+    color: var(--White);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 19rem;
+    opacity: 0.9;
+}
+
+
+.formulaire-profil {
+    background-color: var(--White);
+    margin: 5% auto 15% auto;
+    width: 17rem;
+}
+
+/* Input d'ajout d'ingrédient */
+
+.input-ingredient, .input-ustensile {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: var(--White);
+    border: 1px solid #ccc;
+}
+
+  
+
+.recette-form a {
+    background-color: var(--TransluGreen);
+    color: var(--White);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 19rem;
+    opacity: 0.9;
+}
+
+
+.recette-form {
+    background-color: var(--White);
+    margin: 5% auto 15% auto;
+    width: 20rem;
+}
+
+.textareaConseil {
+
+    margin-left: auto;
+    margin-right: auto;
+    height: 25rem;
+
+
+}
+
+
+/* Media Queries */
+
+@media screen and (min-width: 540px) {
+
+    .navbar-link a {
+        padding-right: 1.2rem;
+        padding-left: 1.2rem;
+        font-weight: 600;
+    }
+
+    .navbar-link {
+        margin-left: -3rem;
+    }
+
+    .banner-titre {
+        font-size: 3.5rem;
+    }
+
+    .banner form {
+        margin-top: 1.4rem;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .recette-content img, .table-container table,
+    .conseils-content, .comment-content  {
+        width: 75%;
+    }
+    
+    .rubrique-item, .accueil-item {
+        width:65%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+}
+
+@media screen and (min-width: 770px) {
+    .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .banner-titre {
+        font-size: 4rem;
+    }
+
+    .search-input {
+        padding: 0.8rem 0;
+    }
+
+    .accueil-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .accueil-item {
+        margin: 0;
+    }
+
+    .rubrique-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .navbar-link a {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .burger-icon {
+        visibility: hidden;
+    }
+    .navbar-link {
+        visibility: visible;
+        display: inline-block;
+    }
+
+    .button-co {
+        visibility: visible;
+    }
+
+    .navbar-logo {
+        font-size: 2rem;
+    }
+
+    .recette-content img, .table-container table,
+    .conseils-content, .comment-content {
+        width: 60%;
+    }
+    .rubrique-item, .accueil-item {
+        width:100%;
+    }
+
+    #param {
+        display: none;
+    }
+    
+
+}
+
+@media screen and (min-width: 992px) {
+
+    .banner-titre {
+        font-size: 5rem;
+    }
+
+    .rubrique-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .apropos-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+        align-items: center;
+    }
+
+    .navbar-link a {
+        font-size: 1rem;
+    }
+    .recette-content img, .table-container table,
+    .conseils-content, .comment-content {
+        width: 45%;
+    }
+
+}
+
+
+@media screen and (min-width: 1200px){
+    .accueil-content{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .banner-titre {
+        font-size: 5rem;
+    }
+
+    .navbar-link a {
+        font-size: 1rem;
+    }
+
+}
