@@ -26,7 +26,7 @@
                             <h2>'.$recette->getTitre_recette().'</h2>
                             <p>'.$recette->getResume().'</p>
                             <a href="index.php?action=recette&id='.$recette->getId_recette().'">Lire</a>';
-                            if($role == 'ROLE_ADMIN') {echo'<a href="index.php?action=recette&id='.$recette->getId_recette().'" class="buttonModifier">Modifier</a>';}
+                            if($role == 'ROLE_ADMIN') {echo'<!--a href="index.php?action=modificationRecette&id='.$recette->getId_recette().'" class="buttonModifier">Modifier</a-->';}
                         echo '</div>
                     </div>';
                     

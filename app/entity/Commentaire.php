@@ -9,7 +9,6 @@ class Commentaire {
     private $date_commentaire;
     private $id_utilisateur;
     private $id_recette;
-    private $pseudo_utilisateur;
 
     function __construct($commentaire = '', $id_utilisateur = '', $id_recette = '') {
         $this->id_commentaire = 0;

@@ -67,12 +67,12 @@
     <!-- footer -->
     <footer>
         <div class="social">
-            <a href="#">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-pinterest"></i>
-            </a>
+            
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/eatndreammm/"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            
         </div>
         <span>Eat'n dream</span>
     </footer>

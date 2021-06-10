@@ -71,7 +71,7 @@ query.addEventListener("change", whileEvent); // Permet de définir les proprié
 
 
 
-
+// Permet de vérifier si les password correspondent dans le formulaire d'inscription.
 const inputCheck = () => {
 
     let inputChecked = document.getElementById("affichePassword");
@@ -94,9 +94,12 @@ let inputIngredient = document.getElementById('input-ingredient');
 let addIngredient = document.getElementById('addIngredient');
 let removeIngredient = document.getElementById('removeIngredient');
 
+
 const ajouterIngredient = () => {
     // let inputElement = inputIngredient.getElementsByTagName('input');
     // let n = 1;
+    alert(document);
+
     let addInput = document.createElement('input');
     addInput.setAttribute('type', 'text');
     addInput.setAttribute('name', 'ingredient[]');

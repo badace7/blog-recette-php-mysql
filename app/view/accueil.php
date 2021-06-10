@@ -14,22 +14,23 @@
             <?php 
                 foreach ($lastRecipe as $lastRecipe) {
                     
-            echo '
-                <!-- publication -->
-                <div class="accueil-item">
-                    <a href="index.php?action=recette&id='.$lastRecipe->getId_recette().'"><div class="accueil-img">
-                    <img src="app/images/'.$lastRecipe->getImage_recette().'" alt=""></img>
-                        <span>
-                            <i class="far fa-heart">
-                            </i>
-                        </span>
-                        <span>'.$lastRecipe->getTitre_recette().'</span>
-                    </div></a>
-                    <div class="accueil-titre">
-                        <a href="index.php?action=recette&id='.$lastRecipe->getId_recette().'">'.$lastRecipe->getTitre_recette().'</a>
-                    </div>
-                </div>';
-          }?>
+                echo '
+                    <!-- publication -->
+                    <div class="accueil-item">
+                        <a href="index.php?action=recette&id='.$lastRecipe->getId_recette().'"><div class="accueil-img">
+                        <img loading="lazy" src="app/images/'.$lastRecipe->getImage_recette().'" alt=""></img>
+                            <span>
+                                <!--i class="far fa-heart">
+                                </i-->
+                            </span>
+                            <span>'.$lastRecipe->getTitre_recette().'</span>
+                        </div></a>
+                        <div class="accueil-titre">
+                            <a href="index.php?action=recette&id='.$lastRecipe->getId_recette().'">'.$lastRecipe->getTitre_recette().'</a>
+                        </div>
+                    </div>';
+                }
+            ?>
             </div>
 
         </div>

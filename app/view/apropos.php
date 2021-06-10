@@ -5,7 +5,7 @@
         <div class="container">
             <div class="apropos-content">
                 <div>
-                    <img src="app/images/sucree/fruit_tavu3.jpg" alt="">
+                    <img src="app/images/fruit_tavu3.jpg" alt="">
                 </div>
                 <div class="apropos-text">
                     <div class="titre">

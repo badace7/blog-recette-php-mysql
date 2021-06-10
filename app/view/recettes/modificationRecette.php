@@ -1,0 +1,85 @@
+<section class="modifierRecette" id="modifierRecette">
+    <div class="container">
+        <div class="titre">
+            <h2>Modifier une recette</h2>
+            <br><br>
+        </div>
+
+        <form class="recette-form" action="index.php?action=modificationRecette&id=37" enctype="multipart/form-data" method="post">
+            <div>
+                <label for="titre-recette"><b class="label-input">Selectionnez un type de recette</b></label>
+                <select class="input-ingredient"  name="type-recette" placeholder="type" >
+                    <option value="sucrée">Sucrée</option>
+                    <option value="salée">Salée</option>
+                </select>
+            </div>
+
+            <div >
+                <label for="titre-recette"><b class="label-input">Titre de la recette</b></label>
+                <input class="input-ingredient" type="text" name="titre-recette" placeholder="<?= $recette->getTitre_recette(); ?>" >
+            </div>
+
+            <div >
+                <label for="titre-recette"><b class="label-input">Résumé</b></label>
+                <textarea class="input-ingredient" type="text" name="resume-recette" placeholder="<?= $recette->getResume(); ?>" ></textarea>
+            </div>
+           
+
+            <div >
+                <label for="image-recette"><b class="label-input">Image</b></label>
+                <input class="input-ingredient" type="file" name="image-recette" placeholder="<?= $recette->getImage_recette(); ?>" >
+            </div>
+           
+            <div >
+                <label for="titre-recette"><b class="label-input">Préparation</b></label>
+                <input class="input-ingredient" min="0" max="240" type="number" name="preparation-recette" placeholder="<?= $recette->getTemps_preparation(); ?>" >
+            </div>
+
+
+            <div >
+                <label for="titre-recette"><b class="label-input">Cuisson</b></label>
+                <input class="input-ingredient" type="number"  min="0" max="240" name="cuisson-recette" placeholder="<?= $recette->getTemps_cuisson(); ?>" >
+            </div>
+
+            <div>
+                <label for="titre-recette"><b class="label-input">Temps total</b></label>
+                <input class="input-ingredient" type="number"  min="0" max="240" name="tempstotal-recette" placeholder="<?= $recette->getTemps_total(); ?>" >
+            </div>
+
+            <?php foreach($ingredients as $ingredient) {
+            echo 
+                '<div id="input-ingredient">
+                <label for="ingredient"><b class="label-input">Ingrédient</b></label>
+                <input class="input-ingredient" type="text" name="ingredient[]" placeholder="'.$ingredient->getIngredients().'" >
+                </div>';
+            }?>
+            <a name="ajout" onclick="ajouterIngredient()" class="label-input" id="addIngredient"><i class="fas fa-plus"></i></a>
+            <a name="retrait" onclick="retirerIngredient()" class="label-input" id="removeIngredient" style="background-color:rgba(104, 17, 17, 0.6);"><i class="fas fa-minus"></i></a>
+            
+            
+            <br><br><br>
+
+            <?php foreach($ustensiles as $ustensile) {
+            echo'
+                <div id="input-ustensile">
+                    <label for="ustensile"><b class="label-input">Ustensile</b></label>
+                    <input class="input-ingredient" type="text" name="ustensile[]" placeholder="'.$ustensile->getUstensile().'">
+                </div>';
+            } ?>
+            <a name="ajout" onclick="ajouterUstensile()" class="label-input" id="addUstensile"><i class="fas fa-plus"></i></a>
+            <a name="retrait" onclick="retirerUstensile()" class="label-input" id="removeUstensile" style="background-color:rgba(104, 17, 17, 0.6);"><i class="fas fa-minus"></i></a>
+
+            <br><br><br>
+
+            <div id="input-ingredient">
+                <label for="titre-recette"><b class="label-input">Conseils</b></label>
+                <textarea class="input-ingredient textareaConseil" type="text" name="conseil-recette" placeholder="<?= $recette->getConseil(); ?>" ></textarea>
+            </div>
+            
+            <button type="submit" class="recipe-button">Valider</button>
+
+        </form>
+
+    </div>
+</section>
+ 

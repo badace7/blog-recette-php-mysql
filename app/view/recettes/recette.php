@@ -69,10 +69,13 @@
                     } ?>
                     <br>
                     <div>
-                        <form action="index.php?action=comment&id=<?=$recette->getId_recette()?>" method="post">
+                        <?php if ($connected) {
+                            echo 
+                        '<form action="index.php?action=comment&id='.$recette->getId_recette().'" method="post">
                             <Textarea style="width:100%; height:7rem;" name="commentaire" required></Textarea>
                             <input class="button-comment" type="submit" value="Commenter">
-                        </form>
+                        </form>';
+                    }?>
                     </div>
                 </div>
                 <br>
