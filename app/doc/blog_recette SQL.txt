@@ -1,0 +1,438 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost
+-- Généré le : sam. 03 juil. 2021 à 00:32
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 8.0.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `blog_recette`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Avoir`
+--
+
+CREATE TABLE `Avoir` (
+  `id_ustensile` int(11) NOT NULL,
+  `id_recette` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Avoir`
+--
+
+INSERT INTO `Avoir` (`id_ustensile`, `id_recette`) VALUES
+(45, 32),
+(46, 32),
+(47, 32),
+(48, 33),
+(49, 34),
+(50, 34),
+(51, 35),
+(52, 36),
+(53, 36),
+(54, 37),
+(55, 37),
+(87, 68);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaires`
+--
+
+CREATE TABLE `commentaires` (
+  `id_commentaire` int(11) NOT NULL,
+  `commentaire` text NOT NULL,
+  `date_commentaire` varchar(50) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_recette` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id_commentaire`, `commentaire`, `date_commentaire`, `id_utilisateur`, `id_recette`) VALUES
+(11, 'hollalalalaa ta vu', '29-03-2021 à 05:41', 1, 37),
+(15, 'lololol', '30-03-2021 à 09:48', 1, 37),
+(28, 'salut', '27-04-2021 à 03:18', 1, 37),
+(30, 'commentaire test', '29-04-2021 à 11:45', 1, 68),
+(31, 'Hello :)', '29-04-2021 à 11:45', 10, 68);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Composer`
+--
+
+CREATE TABLE `Composer` (
+  `id_recette` int(11) NOT NULL,
+  `id_ingredients` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Composer`
+--
+
+INSERT INTO `Composer` (`id_recette`, `id_ingredients`) VALUES
+(32, 55),
+(32, 56),
+(32, 57),
+(32, 58),
+(33, 59),
+(33, 60),
+(33, 61),
+(34, 62),
+(34, 63),
+(34, 64),
+(35, 65),
+(35, 66),
+(36, 67),
+(36, 68),
+(37, 69),
+(37, 70),
+(37, 71),
+(37, 72),
+(37, 73),
+(37, 74),
+(68, 112);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ingredients`
+--
+
+CREATE TABLE `ingredients` (
+  `id_ingredients` int(11) NOT NULL,
+  `ingredients` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `ingredients`
+--
+
+INSERT INTO `ingredients` (`id_ingredients`, `ingredients`) VALUES
+(55, 'Pâtes'),
+(56, 'Crevètes'),
+(57, 'Parmesan'),
+(58, 'Prème fraiche'),
+(59, 'Poulet'),
+(60, 'Chips'),
+(61, ''),
+(62, 'Tomate'),
+(63, 'Viande hachée'),
+(64, 'pomme de terre'),
+(65, 'Avocat'),
+(66, 'haricots'),
+(67, 'Thon'),
+(68, 'Pâte à palmier'),
+(69, 'Riz Japonais'),
+(70, 'Mangue'),
+(71, 'Ananas'),
+(72, 'Avocat'),
+(73, 'Grenade'),
+(74, 'Saumon'),
+(75, 'Pain de mie'),
+(76, 'Oeuf'),
+(77, 'Avocat'),
+(78, 'test'),
+(79, 'toast'),
+(80, 'banane'),
+(81, 'bleu'),
+(82, ''),
+(83, ''),
+(84, ''),
+(85, ''),
+(86, ''),
+(87, ''),
+(88, ''),
+(89, ''),
+(90, ''),
+(91, ''),
+(92, ''),
+(93, ''),
+(94, ''),
+(95, ''),
+(96, ''),
+(97, ''),
+(98, 'banane'),
+(99, 'saumon'),
+(100, 'pâtes'),
+(101, ''),
+(102, ''),
+(103, ''),
+(104, ''),
+(105, ''),
+(106, 'pommes'),
+(107, 'pate feuilltée'),
+(108, 'cannelle'),
+(109, 'sucre'),
+(110, 'compote de pomme'),
+(111, ''),
+(112, ''),
+(113, ''),
+(114, ''),
+(115, ''),
+(116, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `recettes`
+--
+
+CREATE TABLE `recettes` (
+  `id_recette` int(11) NOT NULL,
+  `type_recette` varchar(50) NOT NULL,
+  `image_recette` varchar(50) NOT NULL,
+  `titre_recette` varchar(50) NOT NULL,
+  `resume` varchar(100) NOT NULL,
+  `conseil` longtext NOT NULL,
+  `temps_preparation` varchar(50) NOT NULL,
+  `temps_cuisson` varchar(50) NOT NULL,
+  `temps_total` varchar(50) NOT NULL,
+  `date_publication` varchar(50) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `recettes`
+--
+
+INSERT INTO `recettes` (`id_recette`, `type_recette`, `image_recette`, `titre_recette`, `resume`, `conseil`, `temps_preparation`, `temps_cuisson`, `temps_total`, `date_publication`, `id_utilisateur`) VALUES
+(32, 'salée', 'pates.jpg', 'Pâtes Carbonara aux crevette', 'Ceci est un plat de pâte', 'Ceci est un délicieux plat de pâtes', '10', '10', '20', '24-03-2021', 1),
+(33, 'salée', 'Poulet2.jpg', 'Plat aux trois poulets', 'Ceci est un plat de poulet', 'Ceci est un délicieux plat de poulet', '10', '10', '20', '24-03-2021', 1),
+(34, 'salée', 'tomate2.jpg', 'Farcie de tomate à l&#39;ancienne', 'Ceci est un farcie de tomate', 'Ceci est un délicieux plat de tomates farcie à la viande hachée', '10', '10', '20', '24-03-2021', 1),
+(35, 'salée', 'tortillas.jpg', 'Tortillas des familles', 'Ceci est une tortillas', 'Ceci est une délicieuse torillas', '10', '10', '20', '24-03-2021', 1),
+(36, 'salée', 'IMG_3418.jpg', 'Palmier au thon', 'Ceci est un palmier au thon', 'Ceci est un délicieux plat de palmiers au thon', '10', '10', '20', '24-03-2021', 1),
+(37, 'salée', 'poke.jpg', 'Pokebowl attrapez les tous !', 'Ceci est un Poke', 'Ceci est un délicieux poke', '10', '10', '20', '24-03-2021', 1),
+(68, 'sucrée', 'DSC01764.jpg', 'test d&#39;une recette sucrée', 'Ceci est une recette sucrée', '', '10', '10', '10', '09-04-2021', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Ustensiles`
+--
+
+CREATE TABLE `Ustensiles` (
+  `id_ustensile` int(11) NOT NULL,
+  `ustensile` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Ustensiles`
+--
+
+INSERT INTO `Ustensiles` (`id_ustensile`, `ustensile`) VALUES
+(45, 'Casserole'),
+(46, 'Passoire'),
+(47, 'Râpe à fromage'),
+(48, 'Couteau'),
+(49, 'Couteau'),
+(50, 'Four'),
+(51, 'Ouvre Boîte'),
+(52, 'Ouvre Boîte'),
+(53, 'Four'),
+(54, 'Cuiseur à riz'),
+(55, 'Couteau'),
+(56, 'Grille pain'),
+(57, 'Poêle'),
+(58, 'test'),
+(59, 'couteau'),
+(60, 'couteau'),
+(61, 'cuillèrez'),
+(62, ''),
+(63, ''),
+(64, ''),
+(65, ''),
+(66, ''),
+(67, ''),
+(68, ''),
+(69, ''),
+(70, ''),
+(71, ''),
+(72, ''),
+(73, ''),
+(74, ''),
+(75, ''),
+(76, ''),
+(77, ''),
+(78, 'cuillère'),
+(79, 'fourchette'),
+(80, ''),
+(81, ''),
+(82, ''),
+(83, ''),
+(84, ''),
+(85, 'moule a tarte'),
+(86, ''),
+(87, ''),
+(88, ''),
+(89, ''),
+(90, ''),
+(91, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Utilisateur`
+--
+
+CREATE TABLE `Utilisateur` (
+  `id_utilisateur` int(11) NOT NULL,
+  `email_utilisateur` varchar(50) NOT NULL,
+  `password_utilisateur` varchar(255) NOT NULL,
+  `pseudo_utilisateur` varchar(50) NOT NULL,
+  `nom_utilisateur` varchar(50) NOT NULL,
+  `prenom_utilisateur` varchar(50) NOT NULL,
+  `role_utilisateur` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Utilisateur`
+--
+
+INSERT INTO `Utilisateur` (`id_utilisateur`, `email_utilisateur`, `password_utilisateur`, `pseudo_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `role_utilisateur`) VALUES
+(1, 'admin@eatndream.fr', '$2y$10$o.xgRsEAphQo.ou7cqbSAeL91QhLilC5IjyVNT8oTjyriXBO1fdPG', 'admin', 'admini', 'strateur', 'ROLE_ADMIN'),
+(9, 'bobbybro@bear.com', '$2y$10$a46c1DgRp3ty.cnfQYQSpejjKY7dElfp5.2GhwOleHK1/Zw6yVKMq', 'bobbybro', 'bobby', 'brown', 'ROLE_USER'),
+(10, 'bob@lebricoleur.fr', '$2y$10$JmJl0hpMJBqm9IWCKcLQ0ud5x3JFIQEgHC1393.3WZkJC0eGPj1Me', 'bobby', 'le bricoleur', 'bob', 'ROLE_USER');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `Avoir`
+--
+ALTER TABLE `Avoir`
+  ADD PRIMARY KEY (`id_ustensile`,`id_recette`),
+  ADD KEY `Avoir_recettes0_FK` (`id_recette`);
+
+--
+-- Index pour la table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD PRIMARY KEY (`id_commentaire`),
+  ADD KEY `commentaires_Utilisateur_FK` (`id_utilisateur`),
+  ADD KEY `commentaires_recettes0_FK` (`id_recette`);
+
+--
+-- Index pour la table `Composer`
+--
+ALTER TABLE `Composer`
+  ADD PRIMARY KEY (`id_recette`,`id_ingredients`),
+  ADD KEY `Composer_ingredients0_FK` (`id_ingredients`);
+
+--
+-- Index pour la table `ingredients`
+--
+ALTER TABLE `ingredients`
+  ADD PRIMARY KEY (`id_ingredients`);
+
+--
+-- Index pour la table `recettes`
+--
+ALTER TABLE `recettes`
+  ADD PRIMARY KEY (`id_recette`),
+  ADD KEY `recettes_Utilisateur_FK` (`id_utilisateur`);
+
+--
+-- Index pour la table `Ustensiles`
+--
+ALTER TABLE `Ustensiles`
+  ADD PRIMARY KEY (`id_ustensile`);
+
+--
+-- Index pour la table `Utilisateur`
+--
+ALTER TABLE `Utilisateur`
+  ADD PRIMARY KEY (`id_utilisateur`),
+  ADD UNIQUE KEY `email_utilisateur` (`email_utilisateur`),
+  ADD UNIQUE KEY `pseudo_utilisateur` (`pseudo_utilisateur`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `commentaires`
+--
+ALTER TABLE `commentaires`
+  MODIFY `id_commentaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT pour la table `ingredients`
+--
+ALTER TABLE `ingredients`
+  MODIFY `id_ingredients` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+
+--
+-- AUTO_INCREMENT pour la table `recettes`
+--
+ALTER TABLE `recettes`
+  MODIFY `id_recette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT pour la table `Ustensiles`
+--
+ALTER TABLE `Ustensiles`
+  MODIFY `id_ustensile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+
+--
+-- AUTO_INCREMENT pour la table `Utilisateur`
+--
+ALTER TABLE `Utilisateur`
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `Avoir`
+--
+ALTER TABLE `Avoir`
+  ADD CONSTRAINT `Avoir_Ustensiles_FK` FOREIGN KEY (`id_ustensile`) REFERENCES `Ustensiles` (`id_ustensile`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Avoir_recettes0_FK` FOREIGN KEY (`id_recette`) REFERENCES `recettes` (`id_recette`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD CONSTRAINT `commentaires_Utilisateur_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `Utilisateur` (`id_utilisateur`) ON DELETE CASCADE,
+  ADD CONSTRAINT `commentaires_recettes0_FK` FOREIGN KEY (`id_recette`) REFERENCES `recettes` (`id_recette`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `Composer`
+--
+ALTER TABLE `Composer`
+  ADD CONSTRAINT `Composer_ingredients0_FK` FOREIGN KEY (`id_ingredients`) REFERENCES `ingredients` (`id_ingredients`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Composer_recettes_FK` FOREIGN KEY (`id_recette`) REFERENCES `recettes` (`id_recette`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `recettes`
+--
+ALTER TABLE `recettes`
+  ADD CONSTRAINT `recettes_Utilisateur_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `Utilisateur` (`id_utilisateur`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

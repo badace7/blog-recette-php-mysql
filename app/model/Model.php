@@ -31,7 +31,6 @@ use PDOException;
                 self::$connectBdd = $pdo;
 
             } catch (PDOException $e) {
-
                 header("Location: index.php?action=error");
                 exit();
             
