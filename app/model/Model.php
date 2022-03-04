@@ -12,9 +12,9 @@ use PDOException;
 
     static private ?PDO $connectBdd = null;
 
-    private $ds = 'mysql:host=localhost;port=3306;dbname=blog_recette;charset=utf8';
-    private $userName = 'root';
-    private $password = 'rootdwwm';
+    private $ds = '';
+    private $userName = '';
+    private $password = '';
 
 
     // Permet la connexion à la base de donnée
